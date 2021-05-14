@@ -1,0 +1,25 @@
+1. ft_atoi
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	printf("%d ", ft_atoi(""));
+	printf("%d", atoi(""));
+}
+
+2. ft_bzero
+- void 포인터 => 다양한 자료형의 포인터를 받을 수 있고 그 후 내부적으로 형변환
+- 임의의 메모리를 바이트 단위로 쪼개서 다룰 때에는 모든 비트가 value bit인 unsigned char
+  로 하는 것이 좋다.
+
+3. ft_calloc
+- size 크기의 변수를  count개 만큼 저장할 수 있는 메모리 공간 할당
+- 할당된 공간의 값을 모두 0으로 초기화
+
+4. ft_itoa
+- 음수일 때는 부호까지 생각해줘서 한 개 더 메모리 공간 할당
+- int형 범위가 음수일 때 양수보다 하나 더 큰 값까지 표현 가능하기 때문에(2의 보수)
+  long long으로 형변환해서 음수에서 양수로 변환
+
+- memmove -> https://hand-over.tistory.com/47
+- memcpy -> https://hand-over.tistory.com/49

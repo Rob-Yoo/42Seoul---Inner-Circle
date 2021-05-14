@@ -6,13 +6,15 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:25:50 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/03 16:27:41 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/05/09 15:21:56 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_isprint(int c)
 {
-	if (c >= 32 && c <= 176)
+	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }

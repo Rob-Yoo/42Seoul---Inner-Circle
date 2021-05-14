@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 16:15:51 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/09 15:21:26 by jinyoo           ###   ########.fr       */
+/*   Created: 2021/05/05 21:07:26 by jinyoo            #+#    #+#             */
+/*   Updated: 2021/05/08 20:45:01 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	const unsigned char		*src_p;
+	unsigned char			*dst_p;
+
+	if (dst == src)
+		return (dst);
+	dst_p = dst;
+	src_p = src;
+	while (n--)
+	{
+		if (*src_p == (unsigned char)c)
+		{
+			*(dst_p++) = *src_p;
+			return ((void *)dst_p);
+		}
+		*(dst_p++) = *(src_p++);
+	}
+	return (NULL);
 }

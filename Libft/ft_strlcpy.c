@@ -6,14 +6,16 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:07:30 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/03 16:13:04 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/05/05 22:33:51 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	unsigned int i;
-	unsigned int len;
+	size_t i;
+	size_t len;
 
 	i = 0;
 	len = 0;

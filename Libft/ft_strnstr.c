@@ -6,52 +6,37 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 20:38:13 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/03 21:48:04 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/05/14 15:23:13 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-char*	ft_strnstr(const char *big, const char *little, unsigned int len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char* tmp;
-	unsigned int i;
-	int j;
-	int flag;
+	int		i;
+	char	*start;
+	int		cnt;
 
-	i = 0;
-	flag = 0;
-	if (!(*little))
-		return ((char*) big);
-	while (*big && i + 1 < len)
+	if (!*little)
+		return ((char *)big);
+	while (*big && len)
 	{
-		j = 0;
-		if (*big == little[j])
+		if (*big == *little)
 		{
-			tmp = (char *) big;
-			while (little[j])
-			{
-				if (*big == little[j++])
-					flag = 1;
-				else
-				{
-					flag = 0;
-					big--;
-					break;
-				}
-				big++;
-			}
+			start = (char *)big;
+			i = 0;
+			cnt = 0;
+			while (*big && little[i] && *(big++) == little[i++] && len--)
+				cnt++;
+			if ((int)ft_strlen(little) == cnt)
+				return (start);
 		}
-		if (flag)
-			return (tmp);
-		big++;	
-		i++;
+		else
+		{
+			len--;
+			big++;
+		}
 	}
-	return (0);
-}
-
-int main(void)
-{
-	printf("%s", ft_strnstr("bcdbcd", "bcd", 4));
-	return (0);
+	return (NULL);
 }

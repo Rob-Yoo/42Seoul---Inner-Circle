@@ -6,29 +6,35 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 21:49:08 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/03 22:25:47 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/05/14 21:09:00 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_atoi(const char *str)
 {
-	int sign;
-	int num;
-	int i;
+	int		sign;
+	int		num;
+	int		i;
 
 	i = 0;
 	num = 0;
-	while (str[i] <= 32)
+	sign = 1;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || \
+	str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '-')
+	{
 		sign = -1;
+		i++;
+	}
 	else if (str[i] == '+')
-		sign = 1;
-	i++;
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+		i++;
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		num *= 10;
-		num += *str - '0';
+		num += str[i] - '0';
 		i++;
 	}
 	return (sign * num);
