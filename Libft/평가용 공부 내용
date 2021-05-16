@@ -1,3 +1,12 @@
+1. ft_memset
+- 메모리의 내용을 원하는 크기만큼 특정값으로 설정가능
+- void 포인터 => 다양한 자료형의 포인터를 받을 수 있고 그 후 내부적으로 형변환
+- 임의의 메모리를 바이트 단위로 쪼개서 다룰 때에는 모든 비트가 value bit인 unsigned char
+  로 하는 것이 좋다.
+
+2. ft_bzero
+- 메모리의 내용을 모두 0으로 초기화
+
 1. ft_atoi
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,14 +16,12 @@ int main()
 	printf("%d", atoi(""));
 }
 
-2. ft_bzero
-- void 포인터 => 다양한 자료형의 포인터를 받을 수 있고 그 후 내부적으로 형변환
-- 임의의 메모리를 바이트 단위로 쪼개서 다룰 때에는 모든 비트가 value bit인 unsigned char
-  로 하는 것이 좋다.
 
 3. ft_calloc
 - size 크기의 변수를  count개 만큼 저장할 수 있는 메모리 공간 할당
 - 할당된 공간의 값을 모두 0으로 초기화
+
+
 
 4. ft_itoa
 - 음수일 때는 부호까지 생각해줘서 한 개 더 메모리 공간 할당
