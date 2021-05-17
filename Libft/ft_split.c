@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int			ft_strcnt(char const *str, char c)
 {
@@ -25,7 +26,8 @@ static int			ft_strcnt(char const *str, char c)
 			while (*str && (*str != c))
 				str++;
 		}
-		str++;
+		else
+			str++;
 	}
 	return (str_cnt);
 }
@@ -59,7 +61,8 @@ static int			split_handler(char **ret, char const *str, char c)
 			}
 			ft_strcpy(ret[idx++], start, str);
 		}
-		str++;
+		else
+			str++;
 	}
 	ret[idx] = 0;
 	return (0);
