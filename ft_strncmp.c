@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 21:22:59 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/11 22:18:17 by jinyoo           ###   ########.fr       */
+/*   Created: 2021/05/03 17:53:42 by jinyoo            #+#    #+#             */
+/*   Updated: 2021/05/18 13:03:41 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (new)
+	const unsigned char	*s1_p;
+	const unsigned char	*s2_p;
+	size_t				i;
+
+	if (n == 0)
+		return (0);
+	i = 0;
+	s1_p = (const unsigned char *)s1;
+	s2_p = (const unsigned char *)s2;
+	while (s1_p[i] && s2_p[i] && i < n)
 	{
-		new->next = *lst;
-		*lst = new;
+		if (s1_p[i] != s2_p[i])
+			return (s1_p[i] - s2_p[i]);
+		i++;
 	}
+	if (i == n)
+		i--;
+	return (s1_p[i] - s2_p[i]);
 }

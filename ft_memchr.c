@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 16:07:30 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/05 22:33:51 by jinyoo           ###   ########.fr       */
+/*   Created: 2021/05/08 15:01:59 by jinyoo            #+#    #+#             */
+/*   Updated: 2021/05/16 15:21:24 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t i;
-	size_t len;
+	const unsigned char *s_p;
 
-	i = 0;
-	len = 0;
-	if (!dest || !src)
-		return (0);
-	while (src[len])
-		len++;
-	while (i < len && i + 1 < size)
+	s_p = (const unsigned char *)s;
+	while (n--)
 	{
-		dest[i] = src[i];
-		i++;
+		if (*s_p == (unsigned char)c)
+			return ((void *)s_p);
+		s_p++;
 	}
-	if (size > 0)
-		dest[i] = '\0';
-	return (len);
+	return (NULL);
 }

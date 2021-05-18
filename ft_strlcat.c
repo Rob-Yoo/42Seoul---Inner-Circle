@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/08 22:14:03 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/11 18:06:43 by jinyoo           ###   ########.fr       */
+/*   Created: 2021/05/03 15:19:43 by jinyoo            #+#    #+#             */
+/*   Updated: 2021/05/16 15:46:43 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	char			*ret;
-	unsigned int	i;
+	size_t len;
 
-	if (!s)
-		return (NULL);
-	if (start >= ft_strlen(s))
+	len = 0;
+	while (*dest && len < size)
 	{
-		ret = (char *)malloc(1);
-		*ret = '\0';
-		return (ret);
+		len++;
+		dest++;
 	}
-	ret = (char *)malloc(sizeof(char) * (len + 1));
-	if (!ret)
-		return (NULL);
-	i = 0;
-	while (len--)
-		ret[i++] = s[start++];
-	ret[i] = '\0';
-	return (ret);
+	while (*src && len + 1 < size)
+	{
+		*dest = *src;
+		src++;
+		dest++;
+		len++;
+	}
+	if (len < size)
+		*dest = 0;
+	while (*src)
+	{
+		len++;
+		src++;
+	}
+	return (len);
 }

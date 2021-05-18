@@ -6,29 +6,29 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 20:08:39 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/14 14:16:13 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/05/18 12:48:00 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			ft_strcnt(char const *str, char c)
+static int			word_cnt(char const *str, char c)
 {
-	int		str_cnt;
+	int		cnt;
 
-	str_cnt = 0;
+	cnt = 0;
 	while (*str)
 	{
 		if (*str != c)
 		{
-			str_cnt++;
+			cnt++;
 			while (*str && (*str != c))
 				str++;
 		}
 		else
 			str++;
 	}
-	return (str_cnt);
+	return (cnt);
 }
 
 static void			ft_strcpy(char *dest, char const *start, char const *end)
@@ -70,12 +70,12 @@ static int			split_handler(char **ret, char const *str, char c)
 char				**ft_split(char const *str, char c)
 {
 	char	**ret;
-	int		str_cnt;
+	int		wd_cnt;
 
 	if (!str)
 		return (NULL);
-	str_cnt = ft_strcnt(str, c);
-	ret = (char**)malloc(sizeof(char *) * (str_cnt + 1));
+	wd_cnt = word_cnt(str, c);
+	ret = (char**)malloc(sizeof(char *) * (wd_cnt + 1));
 	if (!ret)
 		return (NULL);
 	if (split_handler(ret, str, c))

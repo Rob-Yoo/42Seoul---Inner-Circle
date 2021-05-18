@@ -7,7 +7,48 @@
 2. ft_bzero
 - 메모리의 내용을 모두 0으로 초기화
 
-1. ft_atoi
+3. ft_memcpy
+src 메모리 영역의 데이터를 dest 메모리 영역으로 n 바이트만큼 복사
+매뉴얼에서 두 영역이 겹칠 경우에 대한 처리는 정의되지 않았다고 해서 따로 처리 안해줌
+두 영역이 완전히 겹치는 경우는 src나 dst나 똑같아서 그 경우만 처리
+복사가 끝난 dst 반환
+
+4. ft_memccpy
+src 데이터를 dest에 복사할 때에 src 데이터의 특정 문자 c까지 복사
+이때 c를 만나서 복사가 중단되었으면 dst의 다음 번지, 아니면 Null 반환 
+
+5. ft_memmove
+src 메모리 영역에서 dest 메모리 영역으로 n byte 만큼 복사
+memcpy과 달리 두 영역이 겹칠 경우 처리가 필요함 -> src와 dst이 서로 겹치지 않는 메모리 영역부터 먼저 복사함 
+dst가 src보다 작을 때는 앞에서부터 복사하지만 클때는 뒤에서부터 복사함
+https://hand-over.tistory.com/47
+
+6. ft_memchr
+s 메모리 영역에서 특정 문자 c가 존재하면 그 부분 주소값 반환 아니면 NULL 반환
+
+7. ft_strlcpy
+dest에 src 문자열 복사 후 널 문자 제외한 src 길이 반환
+이때 size는 널 문자까지 포함한 src의 길이이다.
+원본 함수에서 널 가드 안해줌
+
+8. ft_strlcat
+dest 의 마지막 위치에 src 을 size - strlen(dest) - 1 만큼 복사하는 함수, 이때 dest의 길이가 size보다 길면 src길이 + size 반환
+짧으면 src길이 + dest길이 반환
+
+20번 줄에서 만약 size가 dest보다 짧아서 len이 size 크기가 되고 탈출하면
+바로 34번 줄로 가서 src길이 만큼 len증가하고 반환
+그게 아니라면 len은 dest길이만큼 늘어나고 붙히고 마지막에 널문자 붙히고
+34번에서 src 길이 만큼 len 증가하고 반환
+
+
+9. ft_strchr과 ft_strrchr
+s에서 strchr은 앞에서터 가장 먼저 위치한 특정 문자 c의 주소값 반환, strrchr은 뒤에서부터 
+가장 먼저 위치한 c의 주소값 반환
+
+10. ft_strncmp
+매뉴얼에서 unsigned char로 비교를 한다고 함
+
+11. ft_atoi
 #include <stdio.h>
 #include <stdlib.h>
 int main()
@@ -16,17 +57,17 @@ int main()
 	printf("%d", atoi(""));
 }
 
+12. ft_calloc
+size 크기의 변수를  count개 만큼 저장할 수 있는 메모리 공간 할당
+할당된 공간의 값을 모두 0으로 초기화
 
-3. ft_calloc
-- size 크기의 변수를  count개 만큼 저장할 수 있는 메모리 공간 할당
-- 할당된 공간의 값을 모두 0으로 초기화
+13. ft_strtrim
+문자열의 제일 처음과 마지막에만 set의 문자가 존재하면 삭제하고 문자열 반환
 
-
-
-4. ft_itoa
+14. ft_itoa
 - 음수일 때는 부호까지 생각해줘서 한 개 더 메모리 공간 할당
 - int형 범위가 음수일 때 양수보다 하나 더 큰 값까지 표현 가능하기 때문에(2의 보수)
   long long으로 형변환해서 음수에서 양수로 변환
 
-- memmove -> https://hand-over.tistory.com/47
-- memcpy -> https://hand-over.tistory.com/49
+
+
