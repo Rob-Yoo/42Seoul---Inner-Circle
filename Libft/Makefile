@@ -62,10 +62,10 @@ HEADER = ./
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(AR) $(ARFLAGS) $@ $^
+	$(AR) $(ARFLAGS) $@ $^
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $^ -o $@ -I$(HEADER)
+	$(CC) $(CFLAGS) -c $^ -o $@ -I$(HEADER)
 
 bonus:
 	@make WITH_BONUS=1 all
