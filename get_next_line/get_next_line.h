@@ -12,7 +12,7 @@
 
 #ifndef GNL_H
 # define GNL_H
-# include <stdilb.h>
+# include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
 
