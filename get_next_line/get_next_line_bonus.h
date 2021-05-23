@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 16:31:48 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/21 16:49:24 by jinyoo           ###   ########.fr       */
+/*   Created: 2021/05/23 23:23:24 by jinyoo            #+#    #+#             */
+/*   Updated: 2021/05/23 23:23:26 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_H
-# define GNL_H
+#ifndef GNL_BONUS_H
+# define GNL_BONUS_H
 # include <stdlib.h>
 # include <unistd.h>
 
