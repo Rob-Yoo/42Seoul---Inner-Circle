@@ -6,11 +6,11 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:22:14 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/24 13:20:29 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/05/24 13:27:59 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int		get_newline_idx(char *s)
 {
