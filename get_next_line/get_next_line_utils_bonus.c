@@ -6,12 +6,11 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:22:36 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/23 23:22:39 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/05/24 13:18:05 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {
