@@ -6,11 +6,17 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 18:10:00 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/14 22:53:32 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/15 16:10:38 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_write(char c, t_inform *inform)
+{
+	write(1, &c, 1);
+	inform->size += 1;
+}
 
 void	width_handler(va_list ap, char w, t_inform *inform)
 {
@@ -22,14 +28,21 @@ void	width_handler(va_list ap, char w, t_inform *inform)
 
 void	prec_handler(va_list ap, char p, t_inform *inform)
 {
-	if (w == '*')
-		inform->prec = va_arg(ap, int);
+	int		arg;
+
+	if (p == '*')
+	{
+		arg = va_arg(ap, int);
+		if (arg >= 0)
+			inform->prec = arg;
+	}
 	else
 		inform->prec = inform->prec * 10 + p - '0';
 }
 
-void	specifier_handler(va_list ap, char spec, t_inform *inform)
+int		specifier_handler(va_list ap, char spec, t_inform *inform)
 {
 	if (spec == 'c')
 		ft_printf_c(ap, inform);
+	return (1);
 }
