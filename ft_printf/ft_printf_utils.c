@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 18:10:00 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/15 17:54:01 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/15 22:09:55 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,24 @@ void			ft_write(char c, t_inform *inform)
 
 void			width_handler(va_list ap, char w, t_inform *inform)
 {
+	int		arg;
+
 	if (w == '*')
-		inform->width = va_arg(ap, int);
+	{
+		arg = va_arg(ap, int);
+		if (arg < 0 && inform->flag == '-')
+			inform->width = -arg;
+		else if (arg < 0)
+		{
+			inform->width = -arg;
+			inform->flag = '-';
+		}
+		else
+			inform->width = arg;
+	}
 	else
 		inform->width = inform->width * 10 + w - '0';
+	inform->width_flag = 1;
 }
 
 void			prec_handler(va_list ap, char p, t_inform *inform)
@@ -49,23 +63,13 @@ int				specifier_handler(va_list ap, char spec, t_inform *inform)
 	return (1);
 }
 
-static int		ft_cnt(int n, int cnt)
+void			init_inform(t_inform *inform, int sign)
 {
-	if ((n / 10) == 0)
-		return (++cnt);
-	return (ft_cnt(n / 10, ++cnt));
-}
-
-int				ft_cnt_nbr(int n)
-{
-	int		cnt;
-
-	cnt = 0;
-	if (n == -2147483648)
-		return (11);
-	else if (n < 0)
-		cnt = ft_cnt(-n, 0) + 1;
-	else
-		cnt = ft_cnt(n, 0);
-	return (cnt);
+	if (sign)
+		inform->size = 0;
+	inform->flag = 0;
+	inform->width = 0;
+	inform->prec = 0;
+	inform->prec_flag = 0;
+	inform->width_flag = 0;
 }
