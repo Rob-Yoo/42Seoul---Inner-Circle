@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 18:10:00 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/15 22:09:55 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/16 16:49:38 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int				specifier_handler(va_list ap, char spec, t_inform *inform)
 		ft_printf_c(ap, inform);
 	if (spec == 'd' || spec == 'i')
 		ft_printf_int(ap, inform);
+	if (spec == 's')
+		ft_printf_s(ap, inform);
 	return (1);
 }
 

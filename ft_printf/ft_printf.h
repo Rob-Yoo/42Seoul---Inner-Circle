@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:35:03 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/15 22:14:57 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/16 17:54:18 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include "Libft/libft.h"
 # define ERROR -1
 
@@ -33,12 +34,15 @@ int				specifier_handler(va_list ap, char spec, t_inform *inform);
 int				ft_cnt_nbr(int n);
 void			init_inform(t_inform *inform, int sign);
 void			ft_putnbr(int n);
+
 void			ft_printf_c(va_list ap, t_inform *inform);
+void			ft_printf_s(va_list ap, t_inform *inform);
 void			ft_printf_int(va_list ap, t_inform *inform);
-/*void			ft_printf_s(va_list ap, t_inform *inform);
-void			ft_printf_p(va_list ap, const char *format, t_inform *inform);
+/*void			ft_printf_p(va_list ap, const char *format, t_inform *inform);
 void			ft_printf_u(va_list ap, const char *format, t_inform *inform);
 void			ft_printf_hex(va_list ap, const char *format, t_inform *inform);*/
+
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
+size_t			ft_strlen(const char *s);
 #endif

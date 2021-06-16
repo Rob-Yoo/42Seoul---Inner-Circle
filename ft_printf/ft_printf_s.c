@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_int.c                                    :+:      :+:    :+:   */
+/*   ft_printf_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/15 17:05:02 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/16 16:41:38 by jinyoo           ###   ########.fr       */
+/*   Created: 2021/06/16 17:21:04 by jinyoo            #+#    #+#             */
+/*   Updated: 2021/06/16 18:26:15 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ static void		width_len_comb(int arg, int len, t_inform *inf)
 		right_sort(arg, inf->width - len, 0, inf);
 }
 
-void			ft_printf_int(va_list ap, t_inform *inf)
+void			ft_printf_s(va_list ap, t_inform *inf)
 {
 	int		arg;
 	int		len;
 
-	arg = va_arg(ap, int);
-	len = ft_cnt_nbr(arg);
+	arg = va_arg(ap, char *);
+	len = ft_strlen(arg);
 	inf->size += len;
 	if (inf->width > inf->prec && inf->prec > len)
 		width_prec_comb(arg, len, inf);

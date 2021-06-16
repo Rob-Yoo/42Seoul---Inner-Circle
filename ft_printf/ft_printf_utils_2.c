@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:50:12 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/15 22:14:26 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/16 16:41:40 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int				ft_cnt_nbr(int n)
 
 	cnt = 0;
 	if (n == -2147483648)
-		return (11);
+		return (10);
 	else if (n < 0)
-		cnt = ft_cnt(-n, 0) + 1;
+		cnt = ft_cnt(-n, 0);
 	else
 		cnt = ft_cnt(n, 0);
 	return (cnt);
@@ -51,15 +51,9 @@ static void		putnbr_handler(int n)
 void			ft_putnbr(int n)
 {
 	if (n == -2147483648)
-	{
-		write(1, "-", 1);
 		write(1, "2147483648", 10);
-	}
 	else if (n < 0)
-	{
-		write(1, "-", 1);
 		putnbr_handler(-n);
-	}
 	else
 		putnbr_handler(n);
 }
