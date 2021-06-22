@@ -6,41 +6,41 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 18:10:00 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/16 16:49:38 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/22 16:50:27 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_write(char c, t_inform *inform)
+void			ft_write(char c, t_inform *inf)
 {
 	write(1, &c, 1);
-	inform->size += 1;
+	inf->size += 1;
 }
 
-void			width_handler(va_list ap, char w, t_inform *inform)
+void			width_handler(va_list ap, char w, t_inform *inf)
 {
 	int		arg;
 
 	if (w == '*')
 	{
 		arg = va_arg(ap, int);
-		if (arg < 0 && inform->flag == '-')
-			inform->width = -arg;
+		if (arg < 0 && inf->flag == '-')
+			inf->width = -arg;
 		else if (arg < 0)
 		{
-			inform->width = -arg;
-			inform->flag = '-';
+			inf->width = -arg;
+			inf->flag = '-';
 		}
 		else
-			inform->width = arg;
+			inf->width = arg;
 	}
 	else
-		inform->width = inform->width * 10 + w - '0';
-	inform->width_flag = 1;
+		inf->width = inf->width * 10 + w - '0';
+	inf->width_flag = 1;
 }
 
-void			prec_handler(va_list ap, char p, t_inform *inform)
+void			prec_handler(va_list ap, char p, t_inform *inf)
 {
 	int		arg;
 
@@ -48,30 +48,34 @@ void			prec_handler(va_list ap, char p, t_inform *inform)
 	{
 		arg = va_arg(ap, int);
 		if (arg >= 0)
-			inform->prec = arg;
+			inf->prec = arg;
+		else
+			inf->prec_flag = -1;
 	}
 	else
-		inform->prec = inform->prec * 10 + p - '0';
+		inf->prec = inf->prec * 10 + p - '0';
 }
 
-int				specifier_handler(va_list ap, char spec, t_inform *inform)
+int				specifier_handler(va_list ap, char spec, t_inform *inf)
 {
 	if (spec == 'c')
-		ft_printf_c(ap, inform);
-	if (spec == 'd' || spec == 'i')
-		ft_printf_int(ap, inform);
-	if (spec == 's')
-		ft_printf_s(ap, inform);
+		ft_printf_c(ap, inf);
+	else if (spec == 'd' || spec == 'i')
+		ft_printf_int(ap, inf);
+	else if (spec == 's')
+		ft_printf_s(ap, inf);
+	else if (spec == 'u')
+		ft_printf_u(ap, inf);
 	return (1);
 }
 
-void			init_inform(t_inform *inform, int sign)
+void			init_inform(t_inform *inf, int sign)
 {
 	if (sign)
-		inform->size = 0;
-	inform->flag = 0;
-	inform->width = 0;
-	inform->prec = 0;
-	inform->prec_flag = 0;
-	inform->width_flag = 0;
+		inf->size = 0;
+	inf->flag = 0;
+	inf->width = 0;
+	inf->prec = 0;
+	inf->prec_flag = 0;
+	inf->width_flag = 0;
 }
