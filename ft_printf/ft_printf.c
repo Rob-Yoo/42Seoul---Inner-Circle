@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:33:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/22 16:26:56 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/23 21:45:17 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		format_handler(va_list ap, const char **format, t_inform *inf)
 		if ((**format == '-' || **format == '0') && !inf->width_flag\
 		&& !inf->prec_flag)
 			inf->flag = (**format == '-') ? '-' : '0';
-		else if (ft_isdigit(**format) || **format == '*')
+		else if ((**format >= '0' && **format <= '9') || **format == '*')
 		{
 			if (inf->prec_flag)
 				prec_handler(ap, **format, inf);
@@ -30,12 +30,12 @@ static int		format_handler(va_list ap, const char **format, t_inform *inf)
 			inf->prec_flag = 1;
 		else if (**format == '%')
 		{
-			ft_write(**format, inf);
-			return (1);
+			ft_printf_per(inf);
+			return (0);
 		}
 		(*format)++;
 	}
-	return (0);
+	return (1);
 }
 
 static int		check_format(va_list ap, const char *format, t_inform *inf)
@@ -47,7 +47,7 @@ static int		check_format(va_list ap, const char *format, t_inform *inf)
 		else
 		{
 			format++;
-			if (!format_handler(ap, &format, inf))
+			if (format_handler(ap, &format, inf))
 				if (!specifier_handler(ap, *format, inf))
 					return (0);
 			init_inform(inf, 0);

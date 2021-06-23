@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:50:12 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/22 16:59:04 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/23 21:33:54 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,18 @@ void			ft_putnbr(long long n)
 		putnbr_handler(-n);
 	else
 		putnbr_handler(n);
+}
+
+char			*ft_toupper(char *s)
+{
+	char	*tmp;
+
+	tmp = s;
+	while (*tmp)
+	{
+		if (*tmp >= 'a' && *tmp <= 'z')
+			*tmp -= 32;
+		tmp++;
+	}
+	return (s);
 }
