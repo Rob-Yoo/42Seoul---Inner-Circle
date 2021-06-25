@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:35:03 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/23 21:35:56 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/25 16:45:36 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 
 typedef struct	s_inform{
 	int			size;
+	int			minus;
+	int			zero;
 	char		flag;
 	int			width;
-	char		prec;
+	int			prec;
 	int			prec_flag;
 	int			width_flag;
 }				t_inform;

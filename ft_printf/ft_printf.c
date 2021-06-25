@@ -6,11 +6,25 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:33:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/23 21:45:17 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/25 15:29:47 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void		flag_handler(t_inform *inf, char c)
+{
+	if (c == '-')
+		inf->minus = 1;
+	else
+		inf->zero = 1;
+	if (inf->minus && inf->zero)
+		inf->flag = '-';
+	else if (inf->minus)
+		inf->flag = '-';
+	else
+		inf->flag = '0';
+}
 
 static int		format_handler(va_list ap, const char **format, t_inform *inf)
 {
@@ -18,7 +32,7 @@ static int		format_handler(va_list ap, const char **format, t_inform *inf)
 	{
 		if ((**format == '-' || **format == '0') && !inf->width_flag\
 		&& !inf->prec_flag)
-			inf->flag = (**format == '-') ? '-' : '0';
+			flag_handler(inf, **format);
 		else if ((**format >= '0' && **format <= '9') || **format == '*')
 		{
 			if (inf->prec_flag)
@@ -47,6 +61,12 @@ static int		check_format(va_list ap, const char *format, t_inform *inf)
 		else
 		{
 			format++;
+			if (*format == ' ')
+			{
+				while (*format == ' ')
+					format++;
+				ft_write(' ', inf);
+			}
 			if (format_handler(ap, &format, inf))
 				if (!specifier_handler(ap, *format, inf))
 					return (0);

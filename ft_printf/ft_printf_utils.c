@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 18:10:00 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/23 21:34:30 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/25 15:06:07 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void			init_inform(t_inform *inf, int sign)
 {
 	if (sign)
 		inf->size = 0;
+	inf->zero = 0;
+	inf->minus = 0;
 	inf->flag = 0;
 	inf->width = 0;
 	inf->prec = 0;
