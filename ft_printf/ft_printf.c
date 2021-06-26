@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:33:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/06/25 15:29:47 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/06/26 15:35:23 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,6 @@ static int		check_format(va_list ap, const char *format, t_inform *inf)
 		else
 		{
 			format++;
-			if (*format == ' ')
-			{
-				while (*format == ' ')
-					format++;
-				ft_write(' ', inf);
-			}
 			if (format_handler(ap, &format, inf))
 				if (!specifier_handler(ap, *format, inf))
 					return (0);
