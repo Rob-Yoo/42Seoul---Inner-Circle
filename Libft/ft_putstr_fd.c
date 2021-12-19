@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 21:02:01 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/08 21:05:48 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:30:06 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int len;
+	int	len;
 
 	if (!s)
 		return ;

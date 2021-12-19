@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 21:05:35 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/14 13:40:28 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:29:29 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int len;
+	int	len;
 
 	if (!s)
 		return ;

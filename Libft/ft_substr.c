@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 22:14:03 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/16 22:30:26 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:40:56 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		*ret = '\0';
 		return (ret);
 	}
-	len = (len > ft_strlen(s)) ? ft_strlen(s) - start + 1 : len;
+	if (len > ft_strlen(s))
+		len = ft_strlen(s) - start + 1;
 	ret = (char *)malloc(sizeof(char) * (len + 1));
 	if (!ret)
 		return (NULL);

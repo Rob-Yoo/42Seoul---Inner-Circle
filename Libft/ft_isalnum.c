@@ -6,13 +6,13 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 17:50:02 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/09 15:21:21 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:22:34 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (1);

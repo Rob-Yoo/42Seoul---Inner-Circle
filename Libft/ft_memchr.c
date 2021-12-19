@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 15:01:59 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/16 15:21:24 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:27:49 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char *s_p;
+	const unsigned char	*s_p;
 
 	s_p = (const unsigned char *)s;
 	while (n--)

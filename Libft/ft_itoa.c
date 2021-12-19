@@ -6,13 +6,13 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 13:12:27 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/14 22:26:15 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:25:48 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		int_len(int n)
+static int	int_len(int n)
 {
 	int		cnt;
 
@@ -30,7 +30,7 @@ static int		int_len(int n)
 	return (cnt);
 }
 
-static void		itoa_handler(long long n, char *ret, int i)
+static void	itoa_handler(long long n, char *ret, int i)
 {
 	if (n == 0)
 		return ;
@@ -38,12 +38,15 @@ static void		itoa_handler(long long n, char *ret, int i)
 	ret[i] = (n % 10) + '0';
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char		*ret;
 	int			len;
 
-	len = (n >= 0) ? 1 + int_len(n) : 2 + int_len(n);
+	if (n >= 0)
+		len = 1 + int_len(n);
+	else
+		len = 2 + int_len(n);
 	ret = (char *)malloc(sizeof(char) * len);
 	if (!ret)
 		return (NULL);

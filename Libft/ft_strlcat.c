@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 15:19:43 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/16 15:46:43 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:36:11 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	while (*dest && len < size)

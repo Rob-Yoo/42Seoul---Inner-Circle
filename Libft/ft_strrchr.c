@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 20:26:25 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/16 22:20:11 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:37:11 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])

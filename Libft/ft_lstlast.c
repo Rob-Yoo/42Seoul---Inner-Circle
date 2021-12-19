@@ -6,13 +6,13 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 21:35:59 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/11 22:18:52 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:26:15 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst)
 	{

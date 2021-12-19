@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 22:25:46 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/27 16:09:45 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:41:58 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;

@@ -6,30 +6,31 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 15:20:35 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/16 19:06:01 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:39:32 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		ft_strcpy(char *dest, char *start, char *end)
+static void	ft_strcpy(char *dest, char *start, char *end)
 {
 	while (start <= end)
 		*(dest++) = *(start++);
 	*dest = '\0';
 }
 
-static char		*ret_null(void)
+static char	*ret_null(void)
 {
 	char	*ret;
 
-	if (!(ret = (char *)malloc(1)))
+	ret = (char *)malloc(1);
+	if (!ret)
 		return (NULL);
 	*ret = '\0';
 	return (ret);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*pos;
 	char	*ret;
@@ -51,7 +52,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 			break ;
 		pos--;
 	}
-	if (!(ret = (char *)malloc(sizeof(char) * (pos - s1 + 2))))
+	ret = (char *)malloc(sizeof(char) * (pos - s1 + 2));
+	if (!ret)
 		return (NULL);
 	ft_strcpy(ret, (char *)s1, pos);
 	return (ret);
