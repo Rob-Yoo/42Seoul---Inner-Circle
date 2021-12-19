@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:22:58 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/24 16:55:41 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 16:50:20 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	get_last_line(char **backup, char **line, int size)
 
 	if (size < -1)
 		return (-1);
-	if (*backup && ((newline_idx = get_newline_idx(*backup)) >= 0))
+	newline_idx = get_newline_idx(*backup);
+	if (*backup && newline_idx >= 0)
 		return (get_one_line(backup, line, newline_idx));
 	else if (*backup)
 	{
@@ -73,12 +74,15 @@ int	get_next_line(int fd, char **line)
 		return (-1);
 	if (!backup[fd])
 		backup[fd] = ft_strdup("");
-	while ((size = read(fd, buf, BUFFER_SIZE)) > 0)
+	size = read(fd, buf, BUFFER_SIZE);
+	while (size > 0)
 	{
 		buf[size] = '\0';
 		backup[fd] = ft_strjoin(backup[fd], buf);
-		if ((newline_idx = get_newline_idx(backup[fd])) >= 0)
+		newline_idx = get_newline_idx(backup[fd]);
+		if (newline_idx >= 0)
 			return (get_one_line(&backup[fd], line, newline_idx));
+		size = read(fd, buf, BUFFER_SIZE);
 	}
 	if (size < 0)
 	{

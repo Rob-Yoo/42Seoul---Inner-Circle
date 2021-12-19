@@ -6,15 +6,15 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:22:14 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/05/24 16:55:19 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/12/19 17:10:29 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-int		get_newline_idx(char *s)
+int	get_newline_idx(char *s)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -26,7 +26,7 @@ int		get_newline_idx(char *s)
 	return (-1);
 }
 
-int		get_one_line(char **backup, char **line, int newline_idx)
+int	get_one_line(char **backup, char **line, int newline_idx)
 {
 	char	*tmp;
 
@@ -44,13 +44,14 @@ int		get_one_line(char **backup, char **line, int newline_idx)
 	return (1);
 }
 
-int		get_last_line(char **backup, char **line, int size)
+int	get_last_line(char **backup, char **line, int size)
 {
-	int		newline_idx;
+	int	newline_idx;
 
 	if (size < -1)
 		return (-1);
-	if (*backup && ((newline_idx = get_newline_idx(*backup)) >= 0))
+	newline_idx = get_newline_idx(*backup);
+	if (*backup && newline_idx >= 0)
 		return (get_one_line(backup, line, newline_idx));
 	else if (*backup)
 	{
@@ -62,7 +63,7 @@ int		get_last_line(char **backup, char **line, int size)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char		*backup[OPEN_MAX + 1];
 	char			buf[BUFFER_SIZE + 1];
@@ -73,12 +74,15 @@ int		get_next_line(int fd, char **line)
 		return (-1);
 	if (!backup[fd])
 		backup[fd] = ft_strdup("");
-	while ((size = read(fd, buf, BUFFER_SIZE)) > 0)
+	size = read(fd, buf, BUFFER_SIZE);
+	while (size > 0)
 	{
 		buf[size] = '\0';
 		backup[fd] = ft_strjoin(backup[fd], buf);
-		if ((newline_idx = get_newline_idx(backup[fd])) >= 0)
+		newline_idx = get_newline_idx(backup[fd]);
+		if (newline_idx >= 0)
 			return (get_one_line(&backup[fd], line, newline_idx));
+		size = read(fd, buf, BUFFER_SIZE);
 	}
 	if (size < 0)
 	{
