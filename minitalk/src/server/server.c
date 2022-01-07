@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 16:26:25 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/06 16:53:52 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/07 18:25:45 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,27 @@
 
 static void	msg_handler(int signal)
 {
+	static t_text	chr;
+
+	if (signal == SIGUSR1)
+	{
+		chr.character |= 0;
+		if (chr.bit < 7)
+			chr.character <<= 1;
+	}
+	else if (signal == SIGUSR2)
+	{
+		chr.character |= 1;
+		if (chr.bit < 7)
+			chr.character <<= 1;
+	}
+	chr.bit++;
+	if (chr.bit == 8)
+	{
+		write(1, &chr.character, 1);
+		chr.character = 0;
+		chr.bit = 0;
+	}
 	
 }
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/06 15:19:41 by jinyoo            #+#    #+#              #
-#    Updated: 2022/01/06 15:19:45 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/01/07 18:38:03 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,11 @@ CLIENT = client
 SRC_SERVER =	src/server/server.c
 OBJ_SERVER = $(SRC_SERVER:.c=.o)
 
-SRC_CLIENT =	src/client/client.c \
-				src/client/client_err.c
+SRC_CLIENT =	src/client/client.c
 OBJ_CLIENT = $(SRC_CLIENT:.c=.o)
 
 SRC_UTIL =	src/util/ft_atoi.c \
 			src/util/ft_putnbr.c \
-			src/util/ft_putchar.c \
 			src/util/ft_putstr.c
 OBJ_UTIL = $(SRC_UTIL:.c=.o)
 

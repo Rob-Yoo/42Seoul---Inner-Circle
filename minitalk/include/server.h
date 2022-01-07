@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 16:27:02 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/06 16:33:52 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/07 17:24:51 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <signal.h>
 # include "util.h"
 
-typedef struct s_word
+typedef struct s_text
 {
-	char	word;
-	int		current_bit;
-}	t_word;
+	char	character;
+	int		bit;
+}	t_text;
 
 #endif
