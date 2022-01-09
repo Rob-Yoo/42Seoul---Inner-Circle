@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 16:41:49 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/07 18:54:41 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/08 20:16:00 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ static char	*addNewLineChar(char *str)
 	char	*temp;
 
 	temp = str;
-	while(*str)
+	while (*str)
 		str++;
 	*str = '\n';
 	str++;
 	*str = '\0';
-	return temp;
+	return (temp);
 }
 
 int	main(int argc, char *argv[])

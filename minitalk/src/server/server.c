@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 16:26:25 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/07 18:25:45 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/08 20:17:22 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ static void	msg_handler(int signal)
 		write(1, &chr.character, 1);
 		chr.character = 0;
 		chr.bit = 0;
-	}
-	
+	}	
 }
 
 int	main(void)
