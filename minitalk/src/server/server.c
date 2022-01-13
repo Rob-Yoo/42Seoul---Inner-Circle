@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 16:26:25 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/08 20:17:22 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/09 21:37:56 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	msg_handler(int signal)
 
 	if (signal == SIGUSR1)
 	{
-		chr.character |= 0;
+		chr.character |= 0; 
 		if (chr.bit < 7)
 			chr.character <<= 1;
 	}
