@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/19 15:43:02 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/12/19 15:57:23 by jinyoo           ###   ########.fr       */
+/*   Created: 2022/01/14 16:10:31 by jinyoo            #+#    #+#             */
+/*   Updated: 2022/01/18 18:18:43 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "util.h"
 
-int			main(int argc, char **argv) {
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	len;
 
+	if (!s)
+		return ;
+	len = 0;
+	while (s[len])
+		len++;
+	write(fd, s, len);
+	write(fd, "\n", 1);
 }

@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "push_swap.h": "c",
+    "typeinfo": "c",
+    "__locale": "c"
+  }
+}
