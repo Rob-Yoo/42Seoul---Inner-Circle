@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 22:49:33 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/18 20:39:15 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/19 19:41:04 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,35 @@ void    swap(char name, t_all *all)
 {
     int     val_1;
     int     val_2;
-    char    *oprt;
+    char    *op;
     t_deque *deq;
 
     if (name == 'a')
     {
         deq = all->deq_A;
-        oprt = "sa";
+        op = "sa";
     }
     else
     {
         deq = all->deq_B;
-        oprt = "sb";
+        op = "sb";
     }
     if (deq->size < 2)
         return;
     val_1 = pop_front(deq);
     val_2 = pop_front(deq);
     if (!push_front(deq, val_1))
-        error_handler(2, all);
-    if (!push_front(&deq, val_2))
-        error_handler(2, all);
-    if (!set_oprt_list(all->op_list, oprt))
-        error_handler(2, all);
+        throw_error(all);
+    if (!push_front(deq, val_2))
+        throw_error(all);
+    if (!add_op_list(all->op_list, op))
+        throw_error(all);
 }
 
 void    push(char to, t_all *all)
 {
     int     val;
-    char    *oprt;
+    char    *op;
     t_deque *deq_from;
     t_deque *deq_to;
 
@@ -52,83 +52,83 @@ void    push(char to, t_all *all)
     {
         deq_from = all->deq_B;
         deq_to = all->deq_A;
-        oprt = "pa";
+        op = "pa";
     } 
     else 
     {
         deq_from = all->deq_A;
         deq_to = all->deq_B;
-        oprt =  "pb";
+        op =  "pb";
     }
     if(deq_is_empty(deq_from))
         return;
     val = pop_front(deq_from);
     if (!push_front(deq_to, val))
-        error_handler(2, all);
-    if (!set_oprt_list(all->op_list, oprt))
-        error_handler(2, all);
+        throw_error(all);
+    if (!add_op_list(all->op_list, op))
+        throw_error(all);
 }
 
 void    rotate(char name, t_all *all)
 {
     int     val;
-    char    *oprt;
+    char    *op;
     t_deque *deq;
 
     if (name == 'a')
     {
         deq = all->deq_A;
-        oprt = "ra";
+        op = "ra";
     }
     else
     {
         deq = all->deq_B;
-        oprt = "rb";
+        op = "rb";
     }
     if(deq_is_empty(deq))
         return;
     val = pop_front(deq);
     if(!push_back(deq, val))
-        error_handler(2, all);
-    if (!set_oprt_list(all->op_list, oprt))
-        error_handler(2, all);
+        throw_error(all);
+    if (!add_op_list(all->op_list, op))
+        throw_error(all);
     return (1);
 }
 
 void    r_rotate(char name, t_all *all)
 {
     int     val;
-    char    *oprt;
+    char    *op;
     t_deque *deq;
 
     if (name == 'a')
     {
         deq = all->deq_A;
-        oprt = "rra";
+        op = "rra";
     }
     else
     {
         deq = all->deq_B;
-        oprt = "rrb";
+        op = "rrb";
     }
     if(deq_is_empty(deq))
         return;
     val = pop_back(deq);
     if (!push_front(deq, val))
-        error_handler(2, all);
-    if (!set_oprt_list(all->op_list, oprt))
-        error_handler(2, all);
+        throw_error(all);
+    if (!add_op_list(all->op_list, op))
+        throw_error(all);
     return (1);
 }
 
-void    print_oprt_list(t_oprt *op_list)
+void    print_op(t_op *op_list)
 {
     t_list  *cur;
 
     cur = op_list->head;
     while (cur)
     {
-        ft_putstr_fd(cur->operate, 1);
+        ft_putstr_fd(cur->op, 1);
         cur = cur->next;
     }
 }

@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:43:58 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/18 20:17:19 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/19 19:40:20 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "util.h"
+# define ERROR 0
+# define SUCCESS 1
 
 typedef struct          s_list
 {
-    char                *operate;
+    char                *op;
     struct  s_list      *next;
     struct  s_list      *prev;
 }   t_list;
 
-typedef struct          s_oprt
+typedef struct          s_op
 {
     t_list              *head;
     t_list              *tail;
-}   t_oprt;
+}   t_op;
 
 typedef struct          s_dlist
 {
@@ -47,16 +49,13 @@ typedef struct          s_all
 {
     t_deque             *deq_A;
     t_deque             *deq_B;
-    t_oprt              *op_list;
+    t_op                *op_list;
 }   t_all;
-// lst_util.c
-// t_dlist                 *set_A_stack(char *arg, int idx, t_dlist *tail);
-// void                    free_all(t_dlist *tail);
 
 // error.c
-int                     find_duplicate(int v, t_dlist *tail);
-void                    error_handler(int error, t_all *all);
+int                     find_duplicate(int v, t_dlist *head);
 void                    free_all(t_all *all);
+void                    throw_error(t_all *all);
 
 // deque.c
 int                     deq_is_empty(t_deque *deq);
@@ -70,11 +69,13 @@ void                    swap(char name, t_all *all);
 void                    push(char to, t_all *all);
 void                    rotate(char name, t_all *all);
 void                    r_rotate(char name, t_all *all);
-void                    print_oprt_list(t_oprt *op_list);
+void                    print_op(t_op *op_list);
 
-// operationList.c
-int                     set_oprt_list(t_oprt *op_list, char *oprt);
+// operation_list.c
+int                     add_op_list(t_op *op_list, char *op);
 
+// push_swap.c
+void                    init_push_swap(t_all *all);
 
 
 #endif

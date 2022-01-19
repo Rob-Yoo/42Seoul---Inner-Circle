@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 22:05:26 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/18 20:19:58 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/19 16:44:31 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int    push_front(t_deque *deq, int data)
 
     new = (t_dlist*)malloc(sizeof(t_dlist));
     if (!new)
-        return (0);
+        return (ERROR);
     new->value = data;
     new->next = deq->head;
     if(deq_is_empty(deq))
@@ -36,7 +36,7 @@ int    push_front(t_deque *deq, int data)
     deq->size++;
     new->prev = NULL;
     deq->head = new;
-    return (1);
+    return (SUCCESS);
 }
 
 int    push_back(t_deque *deq, int data)
@@ -45,7 +45,7 @@ int    push_back(t_deque *deq, int data)
 
     new = (t_dlist*)malloc(sizeof(t_dlist));
     if (!new)
-        return (0);
+        return (ERROR);
     new->value = data;
     new->prev = deq->tail;
     if(deq_is_empty(deq))
@@ -55,7 +55,7 @@ int    push_back(t_deque *deq, int data)
     deq->size++;
     new->next = NULL;
     deq->tail = new;
-    return (1);
+    return (SUCCESS);
 }
 
 int     pop_front(t_deque *deq)
