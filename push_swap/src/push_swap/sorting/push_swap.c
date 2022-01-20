@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 19:31:03 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/20 20:50:30 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/20 21:52:22 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	init_push_swap(t_all *all)
 {
+	int	size;
+
+	size = all->deq_A->size;
 	
 }
