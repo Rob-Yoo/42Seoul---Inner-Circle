@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 19:31:03 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/19 19:31:55 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/20 17:00:09 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    init_push_swap(t_all *all)
+void	init_push_swap(t_all *all)
 {
-    
+	
 }
