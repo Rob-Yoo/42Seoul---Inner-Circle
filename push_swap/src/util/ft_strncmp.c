@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 19:31:03 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/22 17:40:37 by jinyoo           ###   ########.fr       */
+/*   Created: 2022/01/22 16:50:41 by jinyoo            #+#    #+#             */
+/*   Updated: 2022/01/22 16:59:04 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "util.h"
 
-void	init_push_swap(t_all *all)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	size;
+	const unsigned char	*s1_p;
+	const unsigned char	*s2_p;
+	size_t				i;
 
-	size = all->deq_A->size;
-	write(1, "1", 1);
+	if (n == 0)
+		return (0);
+	i = 0;
+	s1_p = (const unsigned char *)s1;
+	s2_p = (const unsigned char *)s2;
+	while (s1_p[i] && s2_p[i] && i < n)
+	{
+		if (s1_p[i] != s2_p[i])
+			return (s1_p[i] - s2_p[i]);
+		i++;
+	}
+	if (i == n)
+		i--;
+	return (s1_p[i] - s2_p[i]);
 }

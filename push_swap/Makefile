@@ -6,7 +6,7 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:13:17 by jinyoo            #+#    #+#              #
-#    Updated: 2022/01/20 21:04:53 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/01/22 17:33:43 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ SRCS =	src/push_swap/main.c \
 		src/push_swap/error/error.c
 OBJS = $(SRCS:.c=.o)
 
-SRC_UTILS =	src/util/ft_atoi.c \
-			src/util/ft_putstr.c \
+SRC_UTILS = src/util/ft_putstr.c \
+			src/util/ft_strncmp.c \
 			src/util/ft_isdigit.c
 OBJ_UTILS = $(SRC_UTILS:.c=.o)
 

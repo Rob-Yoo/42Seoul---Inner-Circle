@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 22:49:33 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/20 16:59:01 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/22 16:39:20 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	rotate(char name, t_all *all)
 		throw_error(all);
 	if (!add_op_list(all->op_list, op))
 		throw_error(all);
-	return (1);
 }
 
 void	r_rotate(char name, t_all *all)
@@ -118,7 +117,6 @@ void	r_rotate(char name, t_all *all)
 		throw_error(all);
 	if (!add_op_list(all->op_list, op))
 		throw_error(all);
-	return (1);
 }
 
 void	print_op(t_op *op_list)

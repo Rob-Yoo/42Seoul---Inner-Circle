@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 16:33:16 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/20 16:04:42 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/22 17:08:11 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ void	free_all(t_all *all)
 void	throw_error(t_all *all)
 {
 	free_all(all);
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error", 1);
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 03:30:11 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/20 16:50:54 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/22 17:05:47 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ static int	minimize_op_list(t_op *op_list, char *op, char *prev_op)
 
 	flag = 1;
 	new_op = NULL;
-	if ((prev_op == "ra" && op == "rb") || \
-		(prev_op == "rb" && op == "ra"))
+	if ((!ft_strncmp(prev_op, "ra", 3) && !ft_strncmp(op, "rb", 3)) || \
+		(!ft_strncmp(prev_op, "rb", 3) && !ft_strncmp(op, "ra", 3)))
 		new_op = "rr";
-	else if ((prev_op == "rra" && op == "rrb") || \
-			(prev_op == "rrb" && op == "rra"))
+	else if ((!ft_strncmp(prev_op, "rra", 3) && !ft_strncmp(op, "rrb", 3)) || \
+			(!ft_strncmp(prev_op, "rrb", 3) && !ft_strncmp(op, "rra", 3)))
 		new_op = "rrr";
-	else if ((prev_op == "sa" && op == "sb") || \
-			(prev_op == "sb" && op == "sa"))
+	else if ((!ft_strncmp(prev_op, "sa", 3) && !ft_strncmp(op, "sb", 3)) || \
+			(!ft_strncmp(prev_op, "sb", 3) && !ft_strncmp(op, "sa", 3)))
 		new_op = "ss";
 	if (new_op)
 	{
@@ -78,16 +78,16 @@ static int	optimize_op_list(t_op *op_list, char *op, char *prev_op)
 {
 	int	flag;
 
-	if ((prev_op == "pa" && op == "pb") || \
-		(prev_op == "pb" && op == "pa") || \
-		(prev_op == "ra" && op == "rra") || \
-		(prev_op == "rb" && op == "rrb") || \
-		(prev_op == "rra" && op == "ra") || \
-		(prev_op == "rrb" && op == "rb") || \
-		(prev_op == "sa" && op == "sa") || \
-		(prev_op == "sb" && op == "sb") || \
-		(prev_op == "rr" && op == "rrr") || \
-		(prev_op == "rrr" && op == "rr"))
+	if ((!ft_strncmp(prev_op, "pa", 3) && !ft_strncmp(op, "pb", 3)) || \
+		(!ft_strncmp(prev_op, "pb", 3) && !ft_strncmp(op, "pa", 3)) || \
+		(!ft_strncmp(prev_op, "ra", 3) && !ft_strncmp(op, "rra", 3)) || \
+		(!ft_strncmp(prev_op, "rb", 3) && !ft_strncmp(op, "rrb", 3)) || \
+		(!ft_strncmp(prev_op, "rra", 3) && !ft_strncmp(op, "ra", 3)) || \
+		(!ft_strncmp(prev_op, "rrb", 3) && !ft_strncmp(op, "rb", 3)) || \
+		(!ft_strncmp(prev_op, "sa", 3) && !ft_strncmp(op, "sa", 3)) || \
+		(!ft_strncmp(prev_op, "sb", 3) && !ft_strncmp(op, "sb", 3)) || \
+		(!ft_strncmp(prev_op, "rr", 3) && !ft_strncmp(op, "rrr", 3)) || \
+		(!ft_strncmp(prev_op, "rrr", 3) && !ft_strncmp(op, "rr", 3)))
 	{
 		delete_last(op_list);
 		return (SUCCESS);
