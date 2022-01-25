@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 22:49:33 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/22 16:39:20 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/25 20:35:03 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	swap(char name, t_all *all)
 		deq = all->deq_B;
 		op = "sb";
 	}
+	if (!add_op_list(all->op_list, op))
+		throw_error(all);
 	if (deq->size < 2)
 		return ;
 	val_1 = pop_front(deq);
@@ -36,8 +38,6 @@ void	swap(char name, t_all *all)
 	if (!push_front(deq, val_1))
 		throw_error(all);
 	if (!push_front(deq, val_2))
-		throw_error(all);
-	if (!add_op_list(all->op_list, op))
 		throw_error(all);
 }
 
@@ -60,12 +60,12 @@ void	push(char to, t_all *all)
 		deq_to = all->deq_B;
 		op = "pb";
 	}
+	if (!add_op_list(all->op_list, op))
+		throw_error(all);
 	if (deq_is_empty(deq_from))
 		return ;
 	val = pop_front(deq_from);
 	if (!push_front(deq_to, val))
-		throw_error(all);
-	if (!add_op_list(all->op_list, op))
 		throw_error(all);
 }
 
@@ -85,12 +85,12 @@ void	rotate(char name, t_all *all)
 		deq = all->deq_B;
 		op = "rb";
 	}
+	if (!add_op_list(all->op_list, op))
+		throw_error(all);
 	if (deq_is_empty(deq))
 		return ;
 	val = pop_front(deq);
 	if (!push_back(deq, val))
-		throw_error(all);
-	if (!add_op_list(all->op_list, op))
 		throw_error(all);
 }
 
@@ -110,12 +110,12 @@ void	r_rotate(char name, t_all *all)
 		deq = all->deq_B;
 		op = "rrb";
 	}
+	if (!add_op_list(all->op_list, op))
+		throw_error(all);
 	if (deq_is_empty(deq))
 		return ;
 	val = pop_back(deq);
 	if (!push_front(deq, val))
-		throw_error(all);
-	if (!add_op_list(all->op_list, op))
 		throw_error(all);
 }
 

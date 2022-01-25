@@ -6,7 +6,7 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:13:17 by jinyoo            #+#    #+#              #
-#    Updated: 2022/01/22 17:33:43 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/01/25 17:34:08 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ OBJS = $(SRCS:.c=.o)
 
 SRC_UTILS = src/util/ft_putstr.c \
 			src/util/ft_strncmp.c \
+			src/util/ft_split.c \
+			src/util/ft_strchr.c \
 			src/util/ft_isdigit.c
 OBJ_UTILS = $(SRC_UTILS:.c=.o)
 

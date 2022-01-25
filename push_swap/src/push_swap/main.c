@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:43:02 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/22 17:39:44 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/01/25 17:56:23 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,22 +73,43 @@ static int	set_A(char *arg, t_all *all)
 	return (flag);
 }
 
+static int	handle_arguments(char*argv[], t_all *all)
+{
+	int		i;
+	int		j;
+	int		flag;
+	char	**args;
+
+	i = 0;
+	flag = 0;
+	while (argv[++i])
+	{
+		if (ft_strchr(argv[i], ' '))
+		{
+			j = 0;
+			args = ft_split(argv[i], ' ');
+			while (args[j])
+				if (set_A(args[j++], all))
+					flag = 1;
+		}
+		else
+			if (set_A(argv[i], all))
+				flag = 1;
+	}
+	return (flag);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_all	all;
 	t_deque	deq_A;
 	t_deque	deq_B;
 	t_op	op_list;
-	int		flag;
 
 	if (argc > 1)
 	{
-		flag = 0;
 		init(&deq_A, &deq_B, &op_list, &all);
-		while (--argc)
-			if (set_A(*(++argv), &all))
-				flag = 1;
-		if (flag)
+		if (handle_arguments(argv, &all))
 		{
 			init_push_swap(&all);
 			print_op(&op_list);
