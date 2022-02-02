@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:43:02 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/01/25 17:56:23 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/02/01 18:17:27 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	ft_atoi(const char *str, t_all *all)
 		else
 			throw_error(all);
 	}
-	if ((sign == -1 && num > 2147483648) || num > 2147483647)
+	if ((sign == -1 && num > 2147483648) || (sign == 1 && num > 2147483647))
 		throw_error(all);
 	return (sign * (int)num);
 }

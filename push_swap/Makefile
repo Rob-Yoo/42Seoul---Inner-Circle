@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/14 15:13:17 by jinyoo            #+#    #+#              #
-#    Updated: 2022/01/25 17:34:08 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/02/03 03:16:14 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,10 @@ SRCS =	src/push_swap/main.c \
 		src/push_swap/operation/deque.c \
 		src/push_swap/operation/operations.c \
 		src/push_swap/operation/operation_list.c \
+		src/push_swap/sorting/optimize_push_swap.c \
 		src/push_swap/sorting/push_swap.c \
+		src/push_swap/sorting/push_swap_helper.c \
+		src/push_swap/sorting/quick_sort.c \
 		src/push_swap/error/error.c
 OBJS = $(SRCS:.c=.o)
 
