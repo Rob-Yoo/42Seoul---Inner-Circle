@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 03:11:57 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/02/03 02:03:13 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/02/04 15:59:13 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,21 @@ static void	quick_sort(int arr[], int pivot, int end)
 	quick_sort(arr, right + 1, end);
 }
 
-int	find_pivot(t_deque *deq, int size)
+int	find_pivot(t_all *all, char where, int size)
 {
 	int		pivot;
-	int		arr[size];
+	int		*arr;
 	int		i;
 	t_dlist	*cur;
 
 	i = 0;
-	cur = deq->head;
+	arr = (int *)malloc(sizeof(int) * size);
+	if (!arr)
+		throw_error(all);
+	if (where == 'a')
+		cur = all->deq_A->head;
+	else
+		cur = all->deq_B->head;
 	while (i < size)
 	{
 		arr[i++] = cur->value;
@@ -61,6 +67,7 @@ int	find_pivot(t_deque *deq, int size)
 	}
 	quick_sort(arr, 0, size - 1);
 	pivot = arr[size / 2];
+	free(arr);
 	return (pivot);
 }
 

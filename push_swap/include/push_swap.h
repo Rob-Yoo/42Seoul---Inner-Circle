@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:43:58 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/02/03 04:02:24 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/02/04 14:33:23 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,9 @@ void	print_op(t_op *op_list);
 // operation_list.c
 int		add_op_list(t_op *op_list, char *op);
 
-
 //optimize_push_swap.c
-int		is_sorted(int arr[], char where, int size);
 void	ps_three_arg_A(t_all *all, int mid_val);
 void	ps_three_arg_B(t_all *all, int mid_val);
-void	if_swap(t_all *all, char where, int chunk_size);
 
 // push_swap.c
 void	init_push_swap(t_all *all);
@@ -95,9 +92,8 @@ int		make_B_chunk(t_all *all, int pivot, int chunk_size, int sign);
 
 // quick_sort.c
 void	swp(int *a, int *b);
-int		find_pivot(t_deque *deq, int size);
+int		find_pivot(t_all *all, char where, int size);
 int		is_ascending(t_deque *deq_A, int chunk_size);
 int		is_descending(t_deque *deq_B, int chunk_size);
-
 
 #endif

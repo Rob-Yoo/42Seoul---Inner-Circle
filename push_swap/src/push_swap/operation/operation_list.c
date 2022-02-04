@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_list.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 03:30:11 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/02/01 17:18:47 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/02/04 14:16:23 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ static int	minimize_op_list(t_op *op_list, char *op, char *prev_op)
 static int	optimize_op_list(t_op *op_list, char *op, char *prev_op)
 {
 	int	flag;
+
 	if ((!ft_strncmp(prev_op, "pa", 3) && !ft_strncmp(op, "pb", 3)) || \
 		(!ft_strncmp(prev_op, "pb", 3) && !ft_strncmp(op, "pa", 3)) || \
 		(!ft_strncmp(prev_op, "ra", 3) && !ft_strncmp(op, "rra", 3)) || \

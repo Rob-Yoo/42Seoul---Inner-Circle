@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_helper.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 04:12:07 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/02/03 03:00:03 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/02/04 14:21:48 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	reverse_rotate(t_all *all, int cnt, int sign, char where)
 
 static int	handle_descending(t_all *all)
 {
-	int cnt;
+	int	cnt;
 
 	if (is_descending(all->deq_B, all->deq_B->size))
 	{
@@ -44,16 +44,16 @@ static int	handle_descending(t_all *all)
 
 int	make_B_chunk(t_all *all, int pivot, int chunk_size, int sign)
 {
-	int	r_cnt;
-	int	p_cnt;
-	t_dlist *head;
+	int		r_cnt;
+	int		p_cnt;
+	t_dlist	*head;
 
 	r_cnt = 0;
 	p_cnt = 0;
 	while (p_cnt != chunk_size / 2)
 	{
 		if (is_ascending(all->deq_A, all->deq_A->size) && p_cnt == 0)
-			return (0) ;
+			return (0);
 		head = all->deq_A->head;
 		if (head->value < pivot)
 		{
