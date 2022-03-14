@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   key_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 15:50:46 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/14 17:00:07 by jinyoo           ###   ########.fr       */
+/*   Created: 2022/03/14 16:48:55 by jinyoo            #+#    #+#             */
+/*   Updated: 2022/03/14 16:58:17 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(void)
+int	key_press(int keycode, t_position *position)
 {
-	t_game		game;
-	t_position	position;
-
-	minilibx_init(&game);
-	img_init(&game);
-	map_init(&game);
-	position_init(&position);
-	mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img.img_ptr, 0, 0);
-	mlx_hook(game.win_ptr, X_EVENT_KEY_PRESS, 0, &key_press, &position);
-	mlx_loop(game.mlx_ptr);
+	if (keycode == KEY_W)
+		position->y++;
+	else if (keycode == KEY_S)
+		position->y--;
+	else if (keycode == KEY_A)
+		position->x--;
+	else if (keycode == KEY_D)
+		position->x++;
+	else if (keycode == KEY_ESC)
+		exit(0);
+	printf("(x, y): (%d, %d)\n", position->x, position->y);
 	return (0);
 }

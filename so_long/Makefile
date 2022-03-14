@@ -6,7 +6,7 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 15:47:17 by jinyoo            #+#    #+#              #
-#    Updated: 2022/03/11 15:56:22 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/03/14 16:52:14 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,10 @@ CFLAGS = -Wall -Wextra -Werror -Iinclude
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 NAME = so_long
 
-SRCS =	src/main.c 
+SRCS =	src/main.c \
+		src/key_handler.c \
+		src/init.c \
+		src/draw_map.c
 OBJS = $(SRCS:.c=.o)
 
 .PHONY: all clean fclean re
