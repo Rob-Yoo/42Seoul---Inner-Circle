@@ -6,7 +6,7 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 15:47:17 by jinyoo            #+#    #+#              #
-#    Updated: 2022/03/15 18:55:25 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/03/15 21:57:59 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = so_long
 #B_NAME = bonus_so_long
 
 SRCS_DIR = ./src
-SRCS = src/main.c src/init.c src/key_handler.c
+SRCS = src/main.c src/init.c src/key_handler.c src/draw.c
 #SRCS_BONUS = src/bonus_so_long.c
 OBJS = $(SRCS:.c=.o)
 #BONUS_OBJS = $(SRCS_BONUS:.c=.o)
@@ -46,13 +46,12 @@ $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) -L$(LIB_DIR) -l$(LIB_NAME) -L$(MLX_DIR) -l$(MLX_NAME) \
 			-L$(GNL_DIR) -l$(GNL_NAME) \
 			-framework OpenGL -framework AppKit $^ -o $@
-	@install_name_tool -change libmlx.dylib ./include/minilibx_opengl_20191021/libmlx.a $(NAME)
+	# @install_name_tool -change libmlx.dylib ./include/minilibx_opengl_20191021/libmlx.a $(NAME)
 
 $(SRCS_DIR)/%.o : $(SRCS_DIR)/%.c
 	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(LIB_DIR) -I$(GNL_DIR) -c $< -o $@
 
 all : $(NAME)
-
 
 clean :
 	@rm -rf $(OBJS)

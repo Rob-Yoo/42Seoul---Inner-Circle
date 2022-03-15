@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:03:57 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/15 18:58:43 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/15 22:03:05 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,11 @@ typedef struct s_game
 }	t_game;
 
 void	minilibx_init(t_game *game);
+void	map_init(t_game *game, int fd);
 void	position_init(t_position *position);
 
 int		key_press(int keycode, t_position *position);
+
+void	draw_init_map(t_game *game, char *line, int col);
 
 #endif

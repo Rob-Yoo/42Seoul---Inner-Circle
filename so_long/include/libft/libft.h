@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 22:25:46 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/12/19 16:41:58 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/15 21:44:43 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void				ft_putstr_fd(char *s, int fd);
 char				**ft_split(char const *str, char c);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *s1);
-char				*ft_strjoin(char const *s1, char const *s2);
+// char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 size_t				ft_strlcpy(char *dest, char *src, size_t size);
 size_t				ft_strlen(const char *s);
