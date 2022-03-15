@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:03:57 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/14 16:58:12 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/15 18:58:43 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 # define SO_LONG_H
 # include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include <mlx.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include "get_next_line/get_next_line.h"
+# include "libft/libft.h"
+# include "minilibx_opengl_20191021/mlx.h"
 
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_KEY_RELEASE 3 
@@ -52,17 +56,10 @@ typedef struct s_game
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	int		map[ROW][COL];
 	t_img	img;
 }	t_game;
 
-void	draw_pixels_of_tile(t_game *game, int row, int col);
-void	draw_tiles(t_game *game);
 void	minilibx_init(t_game *game);
-
-void	minilibx_init(t_game *game);
-void	img_init(t_game *game);
-void	map_init(t_game *game);
 void	position_init(t_position *position);
 
 int		key_press(int keycode, t_position *position);
