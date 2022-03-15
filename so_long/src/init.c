@@ -6,17 +6,11 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:38:51 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/15 22:02:53 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/15 22:15:48 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	position_init(t_position *position)
-{
-	position->x = 0;
-	position->y = 0;
-}
 
 void	minilibx_init(t_game *game)
 {

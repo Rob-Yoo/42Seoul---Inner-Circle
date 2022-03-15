@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 15:50:46 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/15 21:53:40 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/15 22:18:04 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char *argv[])
 {
 	t_game		game;
-	t_position	position;
 	int			fd;
 
 	if (argc != 2)
@@ -26,7 +25,7 @@ int	main(int argc, char *argv[])
 	fd = open(argv[1], O_RDONLY);
 	minilibx_init(&game);
 	map_init(&game, fd);
-	mlx_hook(game.win_ptr, X_EVENT_KEY_PRESS, 0, &key_press, &position);
+	mlx_hook(game.win_ptr, X_EVENT_KEY_PRESS, 0, &key_press, &game.position);
 	mlx_loop(game.mlx_ptr);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:03:57 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/15 22:03:05 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/15 22:15:05 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ typedef struct s_img
 
 typedef struct s_game
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	img;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_img		img;
+	t_position	position;
 }	t_game;
 
 void	minilibx_init(t_game *game);
