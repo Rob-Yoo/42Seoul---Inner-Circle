@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:56:23 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 02:36:04 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 02:49:05 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	draw_texture(t_game *game, char texture)
 			break;
 		case 'c':
 			game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-			"textures/score.xpm", &width, &height);
+			"textures/collectible.xpm", &width, &height);
 			break;
 		case 'e':
 			game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \

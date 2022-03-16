@@ -6,7 +6,7 @@
 #    By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 15:47:17 by jinyoo            #+#    #+#              #
-#    Updated: 2022/03/17 02:29:26 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/03/17 02:43:51 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,12 @@ CFLAGS = -Wall -Wextra -Werror -Iinclude
 NAME = so_long
 
 SRCS_DIR = ./src
-SRCS = src/main.c src/init.c src/key_handler.c src/draw.c src/check_map.c
+SRCS =	src/main.c \
+		src/init.c \
+		src/key_handler.c \
+		src/draw.c \
+		src/check_map.c \
+		src/error.c
 OBJS = $(SRCS:.c=.o)
 
 # 외부라이브러리 모음 =================================================

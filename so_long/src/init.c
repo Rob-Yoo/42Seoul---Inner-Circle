@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:38:51 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 02:30:07 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 02:48:43 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	map_textures_init(t_game *game)
 	game->map_textures.wall = 0;
 	game->map_textures.player = 0;
 	game->map_textures.exit = 0;
-	game->map_textures.score = 0;
+	game->map_textures.collectible = 0;
 }

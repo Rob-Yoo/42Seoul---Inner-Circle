@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:03:57 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 02:30:28 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 02:48:12 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_map
 {
 	int	wall;
 	int	player;
-	int	score;
+	int	collectible;
 	int	exit;
 }	t_map;
 
@@ -78,4 +78,6 @@ void	draw_texture(t_game *game, char texture);
 void	draw_updated_player(t_game *game, int prev_x, int prev_y);
 
 void	check_map(t_game *game, int fd);
+
+void	throw_error();
 #endif
