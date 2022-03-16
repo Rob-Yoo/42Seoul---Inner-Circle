@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 15:50:46 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/15 22:18:04 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 02:16:46 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
+	check_map(&game, fd);
 	minilibx_init(&game);
+	fd = open(argv[1], O_RDONLY);
 	map_init(&game, fd);
-	mlx_hook(game.win_ptr, X_EVENT_KEY_PRESS, 0, &key_press, &game.position);
+	mlx_hook(game.win_ptr, X_EVENT_KEY_PRESS, 0, &move_player, &game);
 	mlx_loop(game.mlx_ptr);
 	return (0);
 }

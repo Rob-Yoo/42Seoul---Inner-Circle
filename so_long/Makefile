@@ -3,25 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 15:47:17 by jinyoo            #+#    #+#              #
-#    Updated: 2022/03/15 21:57:59 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/03/17 02:29:26 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iinclude
-#CFLAGS = -Wall -g
 
 NAME = so_long
-#B_NAME = bonus_so_long
 
 SRCS_DIR = ./src
-SRCS = src/main.c src/init.c src/key_handler.c src/draw.c
-#SRCS_BONUS = src/bonus_so_long.c
+SRCS = src/main.c src/init.c src/key_handler.c src/draw.c src/check_map.c
 OBJS = $(SRCS:.c=.o)
-#BONUS_OBJS = $(SRCS_BONUS:.c=.o)
 
 # 외부라이브러리 모음 =================================================
 LIB_NAME = ft
@@ -30,7 +26,7 @@ LIB = $(addprefix $(LIB_DIR)/, libft.a)
 
 MLX_NAME = mlx
 MLX_DIR = ./include/minilibx_opengl_20191021
-MLX = $(addprefix $(MLX_DIR)/, libmlx.a)	# MLX/DIR/libmlx.a를 생성
+MLX = $(addprefix $(MLX_DIR)/, libmlx.a)
 
 GNL_NAME = gnl
 GNL_DIR = ./include/get_next_line

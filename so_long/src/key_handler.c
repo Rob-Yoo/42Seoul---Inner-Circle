@@ -3,27 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   key_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:48:55 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/14 16:58:17 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/16 13:44:40 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	key_press(int keycode, t_position *position)
+int	move_player(int keycode, t_game *game)
 {
+	int	prev_x;
+	int	prev_y;
+
+	prev_x = game->position.x;
+	prev_y = game->position.y;
 	if (keycode == KEY_W)
-		position->y++;
+		game->position.y -= TILE;
 	else if (keycode == KEY_S)
-		position->y--;
+		game->position.y += TILE;
 	else if (keycode == KEY_A)
-		position->x--;
+		game->position.x -= TILE;
 	else if (keycode == KEY_D)
-		position->x++;
+		game->position.x += TILE;
 	else if (keycode == KEY_ESC)
 		exit(0);
-	printf("(x, y): (%d, %d)\n", position->x, position->y);
+	draw_updated_player(game, prev_x, prev_y);
 	return (0);
 }

@@ -3,38 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:56:23 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/15 22:45:47 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 02:36:04 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	draw_texture(t_game *game, char what_texture, int x, int y)
+void	draw_texture(t_game *game, char texture)
 {
-	char	*xpm_file;
-	int		width;
-	int		height;
+	int	width;
+	int	height;
 	
-	switch (what_texture)
+	switch (texture)
 	{
 		case 'w':
-			xpm_file = "textures/wall.xpm";
+			game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+			"textures/wall.xpm", &width, &height);
+			break;
 		case 'p':
-			xpm_file = "textures/player.xpm";
-		case 's':
-			xpm_file = "textures/score.xpm";
+			game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+			"textures/player.xpm", &width, &height);
+			game->position.img_ptr = game->img.img_ptr;
+			break;
+		case 'c':
+			game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+			"textures/score.xpm", &width, &height);
+			break;
 		case 'e':
-			xpm_file = "textures/exit.xpm";
+			game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+			"textures/exit.xpm", &width, &height);
+			break;
 		default:
-			xpm_file = "";
+			return;
 	}
-	game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	xpm_file, &width, &height);
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-	game->img.img_ptr, x, y);
 }
 
 void	draw_init_map(t_game *game, char *line, int col)
@@ -44,18 +48,50 @@ void	draw_init_map(t_game *game, char *line, int col)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == '1')
-			draw_texture(game, 'w', i * 60, col * 60);
-		else if (line[i] == 'P')
+		if (line[i] != '0')
 		{
-			draw_texture(game, 'p', i * 60, col * 60);
-			game->position.x = i * 60;
-			game->position.y = col * 60;
+			if (line[i] == '1')
+				draw_texture(game, 'w');
+			else if (line[i] == 'P')
+			{
+				draw_texture(game, 'p');
+				game->position.x = i * TILE;
+				game->position.y = col * TILE;
+			}
+			else if (line[i] == 'C')
+				draw_texture(game, 'c');
+			else if (line[i] == 'E')
+				draw_texture(game, 'e');
+			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+			game->img.img_ptr, i * TILE, col * TILE);
 		}
-		else if (line[i] == 'C')
-			draw_texture(game, 'c', i * 60, col * 60);
-		else if (line[i] == 'E')
-			draw_texture(game, 'e', i * 60, col * 60);
 		i++;
 	}
+}
+
+void	draw_updated_player(t_game *game, int prev_x, int prev_y)
+{
+	t_img	img;
+	int		count_h;
+	int		count_w;
+
+	img = game->img;
+	img.data = (int *)mlx_get_data_addr(game->position.img_ptr, &img.bpp, \
+	&img.size_line, &img.endian);
+	count_h = 0;
+	while (count_h < TILE)
+	{
+		count_w = 0;
+		while (count_w < TILE)
+		{
+			img.data[count_h * TILE + count_w] = 0x000000;
+			count_w++;
+		}
+		count_h++;
+	}
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+	game->position.img_ptr, prev_x, prev_y);
+	draw_texture(game, 'p');
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+	game->position.img_ptr, game->position.x, game->position.y);
 }
