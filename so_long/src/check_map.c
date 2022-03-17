@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:47:27 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 16:05:12 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 22:38:40 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 static void	is_all_map_textures(t_game *game)
 {
 	if (!game->map_textures.wall)
-		throw_error();
+		close_game(-1, game);
 	if (!game->map_textures.collectible)
-		throw_error();
+		close_game(-1, game);
 	if (!game->map_textures.player)
-		throw_error();
+		close_game(-1, game);
 	if (!game->map_textures.exit)
-		throw_error();
+		close_game(-1, game);
 }
 
 static void	set_map_textures(t_game *game, char texture)
 {
 	if (texture == '1' && !game->map_textures.wall)
 		game->map_textures.wall = 1;
-	else if (texture == 'C' && !game->map_textures.collectible)
-		game->map_textures.collectible = 1;
+	else if (texture == 'C')
+		game->map_textures.collectible += 1;
 	else if (texture == 'P' && !game->map_textures.player)
 		game->map_textures.player = 1;
 	else if (texture == 'E' && !game->map_textures.exit)
@@ -46,14 +46,14 @@ static void	check_validate_map(t_game *game, char *line, int flag)
 	while (line[++i])
 	{
 		if (flag && line[i] != '1')
-			throw_error();
+			close_game(-1, game);
 		if (line[i] != '1' && line[i] != '0' && line[i] != 'P' && \
 		line[i] != 'C' && line[i] != 'E')
-			throw_error();
+			close_game(-1, game);
 		if ((i == 0 || i == len) && line[i] != '1')
-			throw_error();
+			close_game(-1, game);
 		if (len != game->width)
-			throw_error();
+			close_game(-1, game);
 		set_map_textures(game, line[i]);
 	}
 }

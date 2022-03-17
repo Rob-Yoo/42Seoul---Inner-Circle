@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+         #
+#    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 15:47:17 by jinyoo            #+#    #+#              #
-#    Updated: 2022/03/17 02:43:51 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/03/17 21:20:07 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,24 +18,20 @@ NAME = so_long
 SRCS_DIR = ./src
 SRCS =	src/main.c \
 		src/init.c \
-		src/key_handler.c \
+		src/move_player.c \
 		src/draw.c \
-		src/check_map.c \
-		src/error.c
+		src/check_map.c
 OBJS = $(SRCS:.c=.o)
 
 # 외부라이브러리 모음 =================================================
 LIB_NAME = ft
 LIB_DIR = ./include/libft
-LIB = $(addprefix $(LIB_DIR)/, libft.a)
 
 MLX_NAME = mlx
 MLX_DIR = ./include/minilibx_opengl_20191021
-MLX = $(addprefix $(MLX_DIR)/, libmlx.a)
 
 GNL_NAME = gnl
 GNL_DIR = ./include/get_next_line
-GNL = $(addprefix $(GNL_DIR)/, libgnl.a)
 
 # 외부라이브러리 모음 ===================================================
 .PHONY : all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:03:57 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 16:08:59 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 22:11:13 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@
 # include "minilibx_opengl_20191021/mlx.h"
 
 # define X_EVENT_KEY_PRESS 2
-# define X_EVENT_KEY_RELEASE 3 
-# define X_EVENT_EXIT 17
+# define X_EVENT_KEY_EXIT 17
 
 # define KEY_W 13
 # define KEY_A 0
@@ -34,8 +33,10 @@
 
 typedef struct s_position
 {
-	int		x;
-	int		y;
+	int		tile_x;
+	int		tile_y;
+	int		player_x;
+	int		player_y;
 	void	*img_ptr;
 }	t_position;
 
@@ -62,10 +63,15 @@ typedef struct s_game
 	void		*win_ptr;
 	int			width;
 	int			height;
+	int			collect;
+	int			move;
 	t_img		img;
 	t_position	position;
 	t_map		map_textures;
+	char		**map;
 }	t_game;
+
+int		close_game(int flag, t_game *game);
 
 void	minilibx_init(t_game *game);
 void	map_init(t_game *game, int fd);

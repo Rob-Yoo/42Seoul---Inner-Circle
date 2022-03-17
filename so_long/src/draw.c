@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:56:23 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 16:08:26 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 22:26:32 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	draw_texture(t_game *game, char texture)
 {
 	int	width;
 	int	height;
-
 	if (texture == 'w')
 		game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 		"textures/wall.xpm", &width, &height);
@@ -48,8 +47,8 @@ void	draw_init_map(t_game *game, char *line, int col)
 			else if (line[i] == 'P')
 			{
 				draw_texture(game, 'p');
-				game->position.x = i * TILE;
-				game->position.y = col * TILE;
+				game->position.tile_x = i * TILE;
+				game->position.tile_y = col * TILE;
 			}
 			else if (line[i] == 'C')
 				draw_texture(game, 'c');
@@ -57,6 +56,7 @@ void	draw_init_map(t_game *game, char *line, int col)
 				draw_texture(game, 'e');
 			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
 			game->img.img_ptr, i * TILE, col * TILE);
+			mlx_destroy_image(game->mlx_ptr, game->img.img_ptr);
 		}
 		i++;
 	}
@@ -86,5 +86,5 @@ void	draw_updated_player(t_game *game, int prev_x, int prev_y)
 	game->position.img_ptr, prev_x, prev_y);
 	draw_texture(game, 'p');
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-	game->position.img_ptr, game->position.x, game->position.y);
+	game->position.img_ptr, game->position.tile_x, game->position.tile_y);
 }
