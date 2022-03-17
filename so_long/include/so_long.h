@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:03:57 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 02:48:12 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 16:08:59 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ void	draw_updated_player(t_game *game, int prev_x, int prev_y);
 
 void	check_map(t_game *game, int fd);
 
-void	throw_error();
+void	throw_error(void);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:38:51 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 02:48:43 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 16:09:11 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	map_init(t_game *game, int fd)
 {
 	char	*line;
 	int		col;
-	
+
 	col = 0;
 	while (get_next_line(fd, &line) > 0)
 	{

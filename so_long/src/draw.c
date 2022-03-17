@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:56:23 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 02:49:05 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/17 16:08:26 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,27 @@ void	draw_texture(t_game *game, char texture)
 {
 	int	width;
 	int	height;
-	
-	switch (texture)
+
+	if (texture == 'w')
+		game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"textures/wall.xpm", &width, &height);
+	else if (texture == 'c')
+		game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"textures/collectible.xpm", &width, &height);
+	else if (texture == 'e')
+		game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"textures/exit.xpm", &width, &height);
+	else if (texture == 'p')
 	{
-		case 'w':
-			game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-			"textures/wall.xpm", &width, &height);
-			break;
-		case 'p':
-			game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-			"textures/player.xpm", &width, &height);
-			game->position.img_ptr = game->img.img_ptr;
-			break;
-		case 'c':
-			game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-			"textures/collectible.xpm", &width, &height);
-			break;
-		case 'e':
-			game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-			"textures/exit.xpm", &width, &height);
-			break;
-		default:
-			return;
+		game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"textures/player.xpm", &width, &height);
+		game->position.img_ptr = game->img.img_ptr;
 	}
 }
 
 void	draw_init_map(t_game *game, char *line, int col)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i])
