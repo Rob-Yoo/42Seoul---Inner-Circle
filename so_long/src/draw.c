@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:56:23 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/18 17:58:46 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/18 18:19:47 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ void	draw_updated_player(t_game *game, int prev_x, int prev_y)
 	draw_texture(game, 'p');
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
 	game->position.img_ptr, game->position.tile_x, game->position.tile_y);
+	game->move += 1;
 }

@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:48:55 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/18 18:13:14 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/18 18:19:54 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	passing_exit(t_game *game, int prev_x, int prev_y)
 	game->img.img_ptr, prev_x, prev_y);
 }
 
-void	move_player(int keycode, t_game *game)
+int	move_player(int keycode, t_game *game)
 {
 	int	prev_x;
 	int	prev_y;
@@ -88,7 +88,7 @@ void	move_player(int keycode, t_game *game)
 		draw_updated_player(game, prev_x, prev_y);
 		if (flag == 2)
 			passing_exit(game, prev_x, prev_y);
-		game->move += 1;
 		printf("Move : %d\n", game->move);
 	}
+	return (0);
 }
