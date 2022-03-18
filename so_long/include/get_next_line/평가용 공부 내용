@@ -1,5 +1,0 @@
-https://ohseyong.github.io/study/Get-Next-Line/
-https://velog.io/@hidaehyunlee/GetNextLine-%EC%82%BD%EC%A7%88%EC%9D%98-%EA%B8%B0%EB%A1%9D
-read 함수는 실패시 -1반환, 성공 시 읽은 바이트수 반환
-ft_strjoin에서 동적할당된 backup을 free해줘서 메모리 누수 막음
-만약 빈 파일의 내용이 읽힐 경우에는 line에 빈문자열을 넣어주고 return 0;

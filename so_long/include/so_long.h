@@ -6,18 +6,17 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:03:57 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 22:11:13 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/18 18:13:22 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include <stdio.h>
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
-# include "get_next_line/get_next_line.h"
-# include "libft/libft.h"
+# include "get_next_line/include/get_next_line.h"
 # include "minilibx_opengl_20191021/mlx.h"
 
 # define X_EVENT_KEY_PRESS 2
@@ -77,13 +76,11 @@ void	minilibx_init(t_game *game);
 void	map_init(t_game *game, int fd);
 void	map_textures_init(t_game *game);
 
-int		move_player(int keycode, t_game *game);
+void	move_player(int keycode, t_game *game);
 
 void	draw_init_map(t_game *game, char *line, int col);
 void	draw_texture(t_game *game, char texture);
 void	draw_updated_player(t_game *game, int prev_x, int prev_y);
 
 void	check_map(t_game *game, int fd);
-
-void	throw_error(void);
 #endif

@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 21:56:23 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 22:26:32 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/18 17:58:46 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	draw_texture(t_game *game, char texture)
 {
 	int	width;
 	int	height;
+
 	if (texture == 'w')
 		game->img.img_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 		"textures/wall.xpm", &width, &height);
@@ -56,7 +57,6 @@ void	draw_init_map(t_game *game, char *line, int col)
 				draw_texture(game, 'e');
 			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
 			game->img.img_ptr, i * TILE, col * TILE);
-			mlx_destroy_image(game->mlx_ptr, game->img.img_ptr);
 		}
 		i++;
 	}

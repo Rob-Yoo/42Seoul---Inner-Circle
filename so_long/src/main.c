@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 15:50:46 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 22:38:52 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/18 16:54:41 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,14 @@ int	close_game(int flag, t_game *game)
 		printf("Good Game!\n");
 	else
 		printf("End Game\n");
-	while (++i < game->height)
-		free(game->map[i]);
-	free(game->map);
-	system("leaks so_long > leaks_result_temp; cat leaks_result_temp | grep leaked");
+	if (flag != -1)
+	{
+		while (++i < game->height)
+			free(game->map[i]);
+		free(game->map);
+		mlx_destroy_image(game->mlx_ptr, game->img.img_ptr);
+		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	}
 	exit(0);
 }
 

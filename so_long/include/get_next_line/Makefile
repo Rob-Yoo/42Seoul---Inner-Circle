@@ -6,12 +6,12 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 18:49:45 by jinyoo            #+#    #+#              #
-#    Updated: 2022/03/15 18:50:28 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/03/18 16:19:25 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 NAME = libgnl.a
 
 SRCS = get_next_line.c get_next_line_utils.c

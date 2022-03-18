@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:22:58 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 22:38:10 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/18 16:21:43 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	get_one_line(char **backup, char **line, int newline_idx)
 	return (1);
 }
 
-int	get_last_line(char **backup, char **line, int size)
+static int	get_last_line(char **backup, char **line, int size)
 {
 	int	newline_idx;
 

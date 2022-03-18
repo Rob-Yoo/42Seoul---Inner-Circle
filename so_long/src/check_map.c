@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 15:47:27 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/17 22:38:40 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/18 16:57:50 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,18 @@ static void	set_map_textures(t_game *game, char texture)
 		game->map_textures.wall = 1;
 	else if (texture == 'C')
 		game->map_textures.collectible += 1;
-	else if (texture == 'P' && !game->map_textures.player)
+	else if (texture == 'P')
+	{
+		if (game->map_textures.player == 1)
+			close_game(-1, game);
 		game->map_textures.player = 1;
-	else if (texture == 'E' && !game->map_textures.exit)
+	}
+	else if (texture == 'E')
+	{
+		if (game->map_textures.exit == 1)
+			close_game(-1, game);
 		game->map_textures.exit = 1;
+	}
 }
 
 static void	check_validate_map(t_game *game, char *line, int flag)
