@@ -6,11 +6,26 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 15:50:46 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/18 16:54:41 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/18 20:50:45 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static int	closed(t_game *game)
+{
+	int	i;
+
+	i = -1;
+	printf("End Game!\n");
+	while (++i < game->height)
+		free(game->map[i]);
+	free(game->map);
+	mlx_destroy_image(game->mlx_ptr, game->img.img_ptr);
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	free(game->mlx_ptr);
+	exit(0);
+}
 
 int	close_game(int flag, t_game *game)
 {
@@ -18,11 +33,11 @@ int	close_game(int flag, t_game *game)
 
 	i = -1;
 	if (flag == -1)
-		printf("Error - Invalid Map\n");
-	else if (flag == 0)
+		printf("Error: Invalid Map\n");
+	if (flag == 0)
 		printf("Good Game!\n");
 	else
-		printf("End Game\n");
+		printf("End Game!\n");
 	if (flag != -1)
 	{
 		while (++i < game->height)
@@ -30,6 +45,7 @@ int	close_game(int flag, t_game *game)
 		free(game->map);
 		mlx_destroy_image(game->mlx_ptr, game->img.img_ptr);
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+		free(game->mlx_ptr);
 	}
 	exit(0);
 }
@@ -50,6 +66,6 @@ int	main(int argc, char *argv[])
 	fd = open(argv[1], O_RDONLY);
 	map_init(&game, fd);
 	mlx_hook(game.win_ptr, X_EVENT_KEY_PRESS, 0, &move_player, &game);
-	mlx_hook(game.win_ptr, X_EVENT_KEY_EXIT, 0, &close_game, &game);
+	mlx_hook(game.win_ptr, X_EVENT_KEY_EXIT, 0, &closed, &game);
 	mlx_loop(game.mlx_ptr);
 }
