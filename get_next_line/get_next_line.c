@@ -6,11 +6,13 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:22:58 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/12/19 16:50:20 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/18 18:16:00 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+# include <fcntl.h>
+# include <stdio.h>
 
 int	get_newline_idx(char *s)
 {
