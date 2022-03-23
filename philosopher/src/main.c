@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:51:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/23 20:42:27 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/23 20:56:52 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,22 @@ void	init_inform(t_inform *inform, char *argv[], int argc)
 	inform->timeToSleep = ft_atoi(argv[4]);
 	if (argc == 6)
 		inform->numOfMustEat = ft_atoi(argv[5]);
-	
 }
 
 int	main(int argc, char *argv[])
 {
-	t_inform inform;
+	t_inform	inform;
+	int			i;
+	pthread_t	tid;
 
 	if (argc == 5 || argc == 6)
 	{
+		i = -1;
 		init_inform(&inform, argv, argc);
-		printf("%d %d %d %d %d", inform.numOfPhils, inform.timeToDie, inform.timeToEat, inform.timeToSleep, inform.numOfMustEat);
+		while (++i < inform.numOfPhils)
+			pthread_create(&tid, NULL, philosophers, (void *)&inform);
+		while (i--)
+			pthread_join(tid, NULL);
 	}
 	else
 		printf("Usage: ./philo (num_p) (t_d) (t_e) (t_s) [num_m_e]\n");
