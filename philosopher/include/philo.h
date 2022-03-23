@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:14:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/23 20:39:13 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/23 20:59:21 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ typedef struct s_inform
 }	t_inform;
 
 int		ft_atoi(const char *str);
+void	*philosophers(void *inform);
 
 #endif
