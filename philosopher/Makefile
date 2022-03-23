@@ -6,7 +6,7 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/23 14:31:23 by jinyoo            #+#    #+#              #
-#    Updated: 2022/03/23 20:38:55 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/03/23 20:55:44 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CFLAGS = -Wall -Wextra -Werror -pthread -Iinclude
 NAME = philo
 
 SRCS =	src/main.c \
+		src/philosophers.c \
 		utils/phil_utils.c
 OBJS = $(SRCS:.c=.o)
 
