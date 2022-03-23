@@ -6,22 +6,33 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:51:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/23 17:06:01 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/23 20:42:27 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+void	init_inform(t_inform *inform, char *argv[], int argc)
+{
+	inform->numOfPhils = ft_atoi(argv[1]);
+	inform->timeToDie = ft_atoi(argv[2]);
+	inform->timeToEat = ft_atoi(argv[3]);
+	inform->timeToSleep = ft_atoi(argv[4]);
+	if (argc == 6)
+		inform->numOfMustEat = ft_atoi(argv[5]);
+	
+}
+
 int	main(int argc, char *argv[])
 {
+	t_inform inform;
+
 	if (argc == 5 || argc == 6)
 	{
-		(void)argv;
+		init_inform(&inform, argv, argc);
+		printf("%d %d %d %d %d", inform.numOfPhils, inform.timeToDie, inform.timeToEat, inform.timeToSleep, inform.numOfMustEat);
 	}
 	else
-	{
-		printf("Usage: ./philo (number_of_philosophers) (time_to_die)");
-		printf("(time_to_eat) (time_to_sleep) [number_of_times_each_philosopher_must_eat]");
-	}
+		printf("Usage: ./philo (num_p) (t_d) (t_e) (t_s) [num_m_e]\n");
 	return (0);
 }
