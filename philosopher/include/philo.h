@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:14:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/23 20:59:21 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/24 16:59:37 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,20 @@
 
 typedef struct s_inform
 {
-	int	numOfPhils;
-	int	timeToDie;
-	int	timeToEat;
-	int	timeToSleep;
-	int	numOfMustEat;
+	int				numOfPhils;
+	int				timeToDie;
+	int				timeToEat;
+	int				timeToSleep;
+	int				numOfMustEat;
+	int				*state;
+	pthread_mutex_t	mutex;
 }	t_inform;
+
+typedef struct s_phil
+{
+	t_inform	inform;
+	int			whoAmI;
+}	t_phil;
 
 int		ft_atoi(const char *str);
 void	*philosophers(void *inform);
