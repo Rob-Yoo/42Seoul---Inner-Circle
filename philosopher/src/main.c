@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:51:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/30 18:24:35 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/30 22:08:59 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ static int	init_inform(t_inform *inform, char *argv[], int argc)
 	inform->timeToEat = ft_atoi(argv[3]);
 	inform->timeToSleep = ft_atoi(argv[4]);
 	if (argc == 6)
+	{
 		inform->numOfMustEat = ft_atoi(argv[5]);
-	else
-		inform->numOfMustEat = 0;
+		inform->numOfFinishingEat = 0;
+	}
 	inform->fork_mutex = (mutex *)malloc(sizeof(mutex) * inform->numOfPhils);
 	if (!inform->fork_mutex)
 		return (0);
@@ -31,9 +32,6 @@ static int	init_inform(t_inform *inform, char *argv[], int argc)
 	while (++i < inform->numOfPhils)
 		if (pthread_mutex_init(&inform->fork_mutex[i], NULL))
 			return (0);
-	inform->state = (int *)malloc(sizeof(int) * inform->numOfPhils);
-	if (!inform->state)
-		return (0);
 	if (pthread_mutex_init(&inform->print_lock, NULL) || \
 	pthread_mutex_init(&inform->main_lock, NULL))
 		return (0);
@@ -65,8 +63,11 @@ static int	make_phils_to_sit(t_inform *inform, t_phil *phils, int numOfPhils)
 	get_time(&inform->start);
 	while (i < numOfPhils)
 	{
-		if (pthread_create(&phils[i].tid, NULL, dining_phils, \
-		(void *)&phils[i]) || pthread_detach(phils[i].tid))
+		if (pthread_create(&phils[i].dining_tid, NULL, dining_phils, \
+		(void *)&phils[i]) || pthread_detach(phils[i].dining_tid))
+			return (0);
+		if (pthread_create(&phils[i].monitoring_tid, NULL, monitoring, \
+		(void *)&phils[i]) || pthread_detach(phils[i].monitoring_tid))
 			return (0);
 		i++;
 	}

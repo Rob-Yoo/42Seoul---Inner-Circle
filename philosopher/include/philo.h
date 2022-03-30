@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:14:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/30 18:17:17 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/30 22:05:41 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define SLEEPING 2
 # define THINKING 3
 # define EATING 4
-# define FULL 5
+# define FINISH 5
 # define DEAD 6
 
 # define TRUE 1
@@ -36,7 +36,7 @@ typedef struct s_inform
 	int				timeToEat;
 	int				timeToSleep;
 	int				numOfMustEat;
-	int				*state;
+	int				numOfFinishingEat;
 	mutex			main_lock;
 	mutex			*fork_mutex;
 	mutex			print_lock;
@@ -46,7 +46,8 @@ typedef struct s_inform
 typedef struct s_phil
 {
 	t_inform	*inform;
-	pthread_t	tid;
+	pthread_t	dining_tid;
+	pthread_t	monitoring_tid;
 	int			me;
 	int			left_fork;
 	int			right_fork;
@@ -60,6 +61,7 @@ void	ft_putstr(char *s);
 void	ft_putendl(char *s);
 
 void	*dining_phils(void *inform);
+void	*monitoring(void *phil);
 int		throw_error(t_phil *phils);
 void	print_state(t_phil *philo, int state);
 

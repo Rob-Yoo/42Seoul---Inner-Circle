@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:55:26 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/30 18:17:29 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/30 22:07:50 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,25 @@ static void	pickup_forks(t_phil *philo)
 	pthread_mutex_lock(&philo->inform->fork_mutex[right_fork]);
 	print_state(philo, PICKUP);
 	print_state(philo, PICKUP);
+}
+
+void	*monitoring(void *phil)
+{
+	t_phil		*philo;
+	long long	now;
+
+	philo = (t_phil *)phil;
+	time_travel(0, philo->inform->timeToDie - 10);
+	while (TRUE)
+	{
+		get_time(&now);
+		if (now - philo->time > (long long)philo->inform->timeToDie)
+		{
+			print_state(philo, DEAD);
+			pthread_mutex_unlock(&philo->inform->main_lock);
+		}
+	}
+	return (NULL);
 }
 
 void	*dining_phils(void *phil)
