@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   phils_state.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 20:55:26 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/24 17:13:45 by jinyoo           ###   ########.fr       */
+/*   Created: 2022/03/28 17:26:00 by jinyoo            #+#    #+#             */
+/*   Updated: 2022/03/29 16:47:23 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*philosophers(void *phil)
+int		eat(t_phil *philo)
 {
-	t_phil	philo;
-
-	philo = *((t_phil *)phil);
-	printf("%d %d\n", philo.whoAmI, philo.inform.numOfPhils);
-	pthread_exit(0);
+	if (!print_state(philo, EATING))
+		return (0); // 오류
+	philo->numOfEat += 1;
+	if (philo->inform->numOfMustEat == philo->numOfEat)
+	{
+		if (print_state(philo, FULL))
+			return (0);
+		else
+			return (0); // 오류
+	}
+	return (1);
 }
