@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threading.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:55:26 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/30 11:15:21 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/30 16:07:01 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static void	putdown_forks(t_phil *philo)
 
 	left_fork = philo->left_fork;
 	right_fork = philo->right_fork;
-	if (pthread_mutex_unlock(&philo->inform->fork_mutex[left_fork]) || \
-	pthread_mutex_unlock(&philo->inform->fork_mutex[right_fork])
+	pthread_mutex_unlock(&philo->inform->fork_mutex[left_fork]);
+	pthread_mutex_unlock(&philo->inform->fork_mutex[right_fork]);
 }
 
 static void	pickup_forks(t_phil *philo)

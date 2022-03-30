@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:51:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/29 20:31:01 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/30 16:15:40 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,7 @@ static int	make_phils_to_sit(t_phil *phils, int numOfPhils)
 	int	i;
 
 	i = 0;
-	if (pthread_mutex_lock(&phils->inform->main_lock))
-		return (0);
+	pthread_mutex_lock(&phils->inform->main_lock);
 	while (i < numOfPhils)
 	{
 		if (pthread_create(&phils[i].tid, NULL, dining_phils, \
@@ -70,8 +69,7 @@ static int	make_phils_to_sit(t_phil *phils, int numOfPhils)
 			return (0);
 		i++;
 	}
-	if (pthread_mutex_lock(&phils->inform->main_lock))
-		return (0);
+	pthread_mutex_lock(&phils->inform->main_lock);
 	return (1);
 }
 
