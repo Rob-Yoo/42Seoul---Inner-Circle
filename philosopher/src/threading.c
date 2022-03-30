@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:55:26 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/30 16:07:01 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/30 18:17:29 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,16 @@ void	*dining_phils(void *phil)
 	t_phil	*philo;
 
 	philo = (t_phil *)phil;
+	if (philo->me % 2)
+		time_travel(0, 100);
+	get_time(&philo->time);
 	while (TRUE)
 	{
 		pickup_forks(philo);
-		eat(philo);
+		p_eat(philo);
 		putdown_forks(philo);
-		// philo_sleep(philo);
-		// philo_think(philo);
+		p_sleep(philo);
+		p_think(philo);
 	}
 	return (NULL);
 }

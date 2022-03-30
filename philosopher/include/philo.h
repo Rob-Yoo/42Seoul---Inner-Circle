@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:14:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/30 16:33:16 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/30 18:17:17 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,24 @@ typedef struct s_phil
 	int			left_fork;
 	int			right_fork;
 	int			numOfEat;
-	long long 	now;
+	long long 	time;
 }	t_phil;
 
 int		ft_atoi(const char *str);
 void	ft_putnbr(int n);
 void	ft_putstr(char *s);
+void	ft_putendl(char *s);
 
 void	*dining_phils(void *inform);
 int		throw_error(t_phil *phils);
 void	print_state(t_phil *philo, int state);
 
-void	eat(t_phil *philo);
+void	p_eat(t_phil *philo);
+void	p_sleep(t_phil *philo);
+void	p_think(t_phil *philo);
+
+void	get_time(long long *val);
+void	time_travel(long long start, long long time);
 // int		leftOf(t_phil *philo);
 // int		rightOf(t_phil *philo);
 #endif

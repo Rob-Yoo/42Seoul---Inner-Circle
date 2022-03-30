@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phil_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:37:16 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/28 17:09:31 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/30 18:02:41 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,18 @@ void	ft_putnbr(int n)
 }
 
 void	ft_putstr(char *s)
+{
+	int	len;
+
+	if (!s)
+		return ;
+	len = 0;
+	while (s[len])
+		len++; 
+	write(1, s, len);
+}
+
+void	ft_putendl(char *s)
 {
 	int	len;
 
