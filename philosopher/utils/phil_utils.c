@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phil_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:37:16 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/23 20:39:27 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/03/28 17:09:31 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,67 @@ int	ft_atoi(const char *str)
 		num = 10 * num + str[i++] - '0';
 	return (sign * (int)num);
 }
+
+static void	putnbr(int n)
+{
+	char	num;
+
+	if ((n / 10) == 0)
+	{
+		num = (n % 10) + '0';
+		write(1, &num, 1);
+		return ;
+	}
+	putnbr(n / 10);
+	num = (n % 10) + '0';
+	write(1, &num, 1);
+}
+
+void	ft_putnbr(int n)
+{
+	if (n == -2147483648)
+	{
+		write(1, "-", 1);
+		write(1, "2147483648", 10);
+	}
+	else if (n < 0)
+	{
+		write(1, "-", 1);
+		putnbr(-n);
+	}
+	else
+		putnbr(n);
+}
+
+void	ft_putstr(char *s)
+{
+	int	len;
+
+	if (!s)
+		return ;
+	len = 0;
+	while (s[len])
+		len++; 
+	write(1, s, len);
+	write(1, "\n", 1);
+}
+
+// int	leftOf(t_phil *philo)
+// {
+// 	int	whoAmI;
+// 	int numOfPhils;
+
+// 	whoAmI = philo->whoAmI;
+// 	numOfPhils = philo->inform.numOfPhils;
+// 	return (whoAmI + numOfPhils - 1) % numOfPhils;
+// }
+
+// int	rightOf(t_phil *philo)
+// {
+// 	int	whoAmI;
+// 	int numOfPhils;
+
+// 	whoAmI = philo->whoAmI;
+// 	numOfPhils = philo->inform.numOfPhils;
+// 	return (whoAmI + 1) % numOfPhils;
+// }
