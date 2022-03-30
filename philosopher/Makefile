@@ -3,19 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/23 14:31:23 by jinyoo            #+#    #+#              #
-#    Updated: 2022/03/23 20:55:44 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/03/28 17:26:14 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC= gcc
-CFLAGS = -Wall -Wextra -Werror -pthread -Iinclude
+CC= cc
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 NAME = philo
 
 SRCS =	src/main.c \
-		src/philosophers.c \
+		src/threading.c \
+		src/phils_state.c \
+		src/error_handler.c \
+		src/print_state.c \
 		utils/phil_utils.c
 OBJS = $(SRCS:.c=.o)
 
