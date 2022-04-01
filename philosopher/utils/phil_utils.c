@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:37:16 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/30 18:02:41 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/01 20:46:59 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,23 +91,3 @@ void	ft_putendl(char *s)
 	write(1, s, len);
 	write(1, "\n", 1);
 }
-
-// int	leftOf(t_phil *philo)
-// {
-// 	int	whoAmI;
-// 	int numOfPhils;
-
-// 	whoAmI = philo->whoAmI;
-// 	numOfPhils = philo->inform.numOfPhils;
-// 	return (whoAmI + numOfPhils - 1) % numOfPhils;
-// }
-
-// int	rightOf(t_phil *philo)
-// {
-// 	int	whoAmI;
-// 	int numOfPhils;
-
-// 	whoAmI = philo->whoAmI;
-// 	numOfPhils = philo->inform.numOfPhils;
-// 	return (whoAmI + 1) % numOfPhils;
-// }

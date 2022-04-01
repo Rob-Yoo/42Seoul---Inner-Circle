@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:14:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/30 22:05:41 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/01 21:45:44 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_inform
 	mutex			*fork_mutex;
 	mutex			print_lock;
 	long long		start;
+	int				isDie;
+	int				isFin;
 }	t_inform;
 
 typedef struct s_phil
@@ -70,7 +72,8 @@ void	p_sleep(t_phil *philo);
 void	p_think(t_phil *philo);
 
 void	get_time(long long *val);
-void	time_travel(long long start, long long time);
+void	time_travel(t_phil *philo, long long start, long long time);
+int		check_exit(t_phil *philo);
 // int		leftOf(t_phil *philo);
 // int		rightOf(t_phil *philo);
 #endif

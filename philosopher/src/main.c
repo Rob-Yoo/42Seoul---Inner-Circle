@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:51:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/03/30 22:08:59 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/01 21:42:00 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int	init_inform(t_inform *inform, char *argv[], int argc)
 	inform->timeToDie = ft_atoi(argv[2]);
 	inform->timeToEat = ft_atoi(argv[3]);
 	inform->timeToSleep = ft_atoi(argv[4]);
+	inform->isDie = 0;
+	inform->isFin = 0;
 	if (argc == 6)
 	{
 		inform->numOfMustEat = ft_atoi(argv[5]);
@@ -59,19 +61,26 @@ static int	make_phils_to_sit(t_inform *inform, t_phil *phils, int numOfPhils)
 	int	i;
 
 	i = 0;
-	pthread_mutex_lock(&inform->main_lock);
 	get_time(&inform->start);
 	while (i < numOfPhils)
 	{
 		if (pthread_create(&phils[i].dining_tid, NULL, dining_phils, \
-		(void *)&phils[i]) || pthread_detach(phils[i].dining_tid))
+		(void *)&phils[i]))
 			return (0);
 		if (pthread_create(&phils[i].monitoring_tid, NULL, monitoring, \
-		(void *)&phils[i]) || pthread_detach(phils[i].monitoring_tid))
+		(void *)&phils[i]))
 			return (0);
 		i++;
 	}
-	pthread_mutex_lock(&inform->main_lock);
+	i = 0;
+	while (i < numOfPhils)
+	{
+		if (pthread_join(phils[i].dining_tid, NULL))
+			return (0);
+		if (pthread_join(phils[i].monitoring_tid, NULL))
+			return (0);
+		i++;
+	}
 	return (1);
 }
 
