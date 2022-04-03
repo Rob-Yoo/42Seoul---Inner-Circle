@@ -6,28 +6,33 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:55:26 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/01 21:47:04 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/03 17:27:00 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	putdown_forks(t_phil *philo)
+static void	putdown_forks(t_phil *philo, mutex *forks)
 {
-	if (!check_exit(philo))
+	pthread_mutex_unlock(&forks[philo->left_fork]);
+	pthread_mutex_unlock(&forks[philo->right_fork]);
+	if (!phils_guide(philo))
 		return ;
-	pthread_mutex_unlock(&philo->inform->fork_mutex[philo->left_fork]);
-	pthread_mutex_unlock(&philo->inform->fork_mutex[philo->right_fork]);
 }
 
-static void	pickup_forks(t_phil *philo)
+static void	pickup_forks(t_phil *philo, mutex *forks, int *state, int num)
 {
-	if (!check_exit(philo))
+	if (!phils_guide(philo))
 		return ;
-	pthread_mutex_lock(&philo->inform->fork_mutex[philo->left_fork]);
-	pthread_mutex_lock(&philo->inform->fork_mutex[philo->right_fork]);
+	pthread_mutex_lock(&forks[philo->left_fork]);
+	pthread_mutex_lock(&forks[philo->right_fork]);
 	print_state(philo, PICKUP);
 	print_state(philo, PICKUP);
+	if (philo->me + 1 == num)
+		state[0] = 1;
+	else
+		state[philo->me + 1] = 1;
+	state[philo->me] = 0;
 }
 
 void	*monitoring(void *phil)
@@ -37,15 +42,11 @@ void	*monitoring(void *phil)
 
 	philo = (t_phil *)phil;
 	time_travel(philo, 0, philo->inform->timeToDie - 10);
-	while (check_exit(philo))
+	while (phils_guide(philo))
 	{
 		get_time(&now);
 		if (now - philo->time > (long long)philo->inform->timeToDie)
-		{
 			print_state(philo, DEAD);
-			philo->inform->isDie = DEAD;
-			break; 
-		}
 	}
 	return (NULL);
 }
@@ -53,16 +54,25 @@ void	*monitoring(void *phil)
 void	*dining_phils(void *phil)
 {
 	t_phil	*philo;
+	int		numOfPhils;
+	int		*state;
+	mutex	*forks;
 
 	philo = (t_phil *)phil;
+	numOfPhils = philo->inform->numOfPhils;
+	state = philo->inform->state;
+	forks = philo->inform->fork_mutex;
 	get_time(&philo->time);
-	while (check_exit(philo))
+	while (phils_guide(philo))
 	{
-		pickup_forks(philo);
-		p_eat(philo);
-		putdown_forks(philo);
-		p_sleep(philo);
-		p_think(philo);
+		if (state[philo->me])
+		{
+			pickup_forks(philo, forks, state, numOfPhils);
+			p_eat(philo);
+			putdown_forks(philo, forks);
+			p_sleep(philo);
+			p_think(philo);
+		}
 	}
 	return (NULL);
 }

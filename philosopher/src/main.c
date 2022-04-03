@@ -6,16 +6,14 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:51:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/01 21:42:00 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/03 17:17:19 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	init_inform(t_inform *inform, char *argv[], int argc)
+static void	init_inform_helper(t_inform *inform, char *argv[], int argc)
 {
-	int	i;
-
 	inform->numOfPhils = ft_atoi(argv[1]);
 	inform->timeToDie = ft_atoi(argv[2]);
 	inform->timeToEat = ft_atoi(argv[3]);
@@ -27,6 +25,16 @@ static int	init_inform(t_inform *inform, char *argv[], int argc)
 		inform->numOfMustEat = ft_atoi(argv[5]);
 		inform->numOfFinishingEat = 0;
 	}
+}
+
+static int	init_inform(t_inform *inform, char *argv[], int argc)
+{
+	int	i;
+
+	init_inform_helper(inform, argv, argc);
+	inform->state = (int *)malloc(sizeof(int) * inform->numOfPhils);
+	if (!inform->state)
+		return (0);
 	inform->fork_mutex = (mutex *)malloc(sizeof(mutex) * inform->numOfPhils);
 	if (!inform->fork_mutex)
 		return (0);
@@ -44,6 +52,14 @@ static void	init_phils(t_inform *inform, t_phil *phils)
 {
 	int	i;
 
+	i = -1;
+	while (++i < inform->numOfPhils)
+	{
+		if (i % 2 || i == inform->numOfPhils - 1)
+			inform->state[i] = 0;
+		else
+			inform->state[i] = 1;
+	}
 	i = 0;
 	while (i < inform->numOfPhils)
 	{

@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:14:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/01 21:45:44 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/03 16:36:32 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_inform
 	int				timeToSleep;
 	int				numOfMustEat;
 	int				numOfFinishingEat;
+	int				*state;
 	mutex			main_lock;
 	mutex			*fork_mutex;
 	mutex			print_lock;
@@ -73,7 +74,7 @@ void	p_think(t_phil *philo);
 
 void	get_time(long long *val);
 void	time_travel(t_phil *philo, long long start, long long time);
-int		check_exit(t_phil *philo);
+int		phils_guide(t_phil *philo);
 // int		leftOf(t_phil *philo);
 // int		rightOf(t_phil *philo);
 #endif
