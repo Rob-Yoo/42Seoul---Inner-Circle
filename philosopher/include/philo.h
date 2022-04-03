@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:14:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/03 16:36:32 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/03 20:44:49 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 # define TRUE 1
 
-typedef pthread_mutex_t mutex;
+typedef pthread_mutex_t	t_mutex;
 
 typedef struct s_inform
 {
@@ -38,9 +38,9 @@ typedef struct s_inform
 	int				numOfMustEat;
 	int				numOfFinishingEat;
 	int				*state;
-	mutex			main_lock;
-	mutex			*fork_mutex;
-	mutex			print_lock;
+	t_mutex			main_lock;
+	t_mutex			*fork_mutex;
+	t_mutex			print_lock;
 	long long		start;
 	int				isDie;
 	int				isFin;
@@ -55,7 +55,7 @@ typedef struct s_phil
 	int			left_fork;
 	int			right_fork;
 	int			numOfEat;
-	long long 	time;
+	long long	time;
 }	t_phil;
 
 int		ft_atoi(const char *str);

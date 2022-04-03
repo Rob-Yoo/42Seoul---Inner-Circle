@@ -6,13 +6,13 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:55:26 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/03 17:27:00 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/03 22:43:33 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	putdown_forks(t_phil *philo, mutex *forks)
+static void	putdown_forks(t_phil *philo, t_mutex *forks)
 {
 	pthread_mutex_unlock(&forks[philo->left_fork]);
 	pthread_mutex_unlock(&forks[philo->right_fork]);
@@ -20,7 +20,7 @@ static void	putdown_forks(t_phil *philo, mutex *forks)
 		return ;
 }
 
-static void	pickup_forks(t_phil *philo, mutex *forks, int *state, int num)
+static void	pickup_forks(t_phil *philo, t_mutex *forks, int *state, int num)
 {
 	if (!phils_guide(philo))
 		return ;
@@ -56,7 +56,7 @@ void	*dining_phils(void *phil)
 	t_phil	*philo;
 	int		numOfPhils;
 	int		*state;
-	mutex	*forks;
+	t_mutex	*forks;
 
 	philo = (t_phil *)phil;
 	numOfPhils = philo->inform->numOfPhils;
@@ -65,7 +65,7 @@ void	*dining_phils(void *phil)
 	get_time(&philo->time);
 	while (phils_guide(philo))
 	{
-		if (state[philo->me])
+		if (state[philo->me]) 
 		{
 			pickup_forks(philo, forks, state, numOfPhils);
 			p_eat(philo);
