@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:55:26 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/04 18:16:20 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/04 20:51:51 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ static void	putdown_forks(t_phil *philo, t_mutex *forks)
 {
 	pthread_mutex_unlock(&forks[philo->left_fork]);
 	pthread_mutex_unlock(&forks[philo->right_fork]);
+	if (philo->me + 1 == philo->inform->num_phils)
+		philo->inform->state[0] = 1;
+	else
+		philo->inform->state[philo->me + 1] = 1;
 	if (!phils_guide(philo))
 		return ;
 }
@@ -24,6 +28,7 @@ static void	pickup_forks(t_phil *philo, t_mutex *forks)
 {
 	if (!phils_guide(philo))
 		return ;
+	philo->inform->state[philo->me] = 0;
 	pthread_mutex_lock(&forks[philo->left_fork]);
 	print_state(philo, PICKUP);
 	pthread_mutex_lock(&forks[philo->right_fork]);
@@ -75,6 +80,7 @@ void	*dining_phils(void *phil)
 			p_sleep(philo);
 			p_think(philo);
 		}
+		usleep(100);
 	}
 	return (NULL);
 }
