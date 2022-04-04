@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:51:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/04 20:51:58 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/04 21:42:35 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static int	init_inform(t_inform *inform, char *argv[], int argc)
 	while (++i < inform->num_phils)
 		if (pthread_mutex_init(&inform->fork_mutex[i], NULL))
 			return (0);
-	if (pthread_mutex_init(&inform->print_lock, NULL))
+	if (pthread_mutex_init(&inform->print_lock, NULL) || \
+	pthread_mutex_init(&inform->fin_lock, NULL))
 		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 17:26:00 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/04 20:43:57 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/04 21:44:01 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ int	phils_guide(t_phil *philo)
 
 static void	check_finish(t_phil *philo, t_inform *inform)
 {
+	pthread_mutex_lock(&inform->fin_lock);
 	if (inform->num_must_eat && inform->num_must_eat == philo->num_eat)
 	{
 		inform->num_fin_eat += 1;
 		if (inform->num_fin_eat >= inform->num_phils)
 			print_state(philo, FINISH);
 	}
+	pthread_mutex_unlock(&inform->fin_lock);
 }
 
 void	p_eat(t_phil *philo)

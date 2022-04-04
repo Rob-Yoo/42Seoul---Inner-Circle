@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 22:52:24 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/04 18:14:25 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/04 21:45:36 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	ft_exit(t_phil *phils)
 		free(inform->fork_mutex);
 	}
 	pthread_mutex_destroy(&inform->print_lock);
+	pthread_mutex_destroy(&inform->fin_lock);
 	free(phils);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:14:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/04 18:16:43 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/04 21:42:12 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_inform
 	int				*state;
 	t_mutex			*fork_mutex;
 	t_mutex			print_lock;
+	t_mutex			fin_lock;
 	long long		*time;
 	long long		start;
 	int				die;
