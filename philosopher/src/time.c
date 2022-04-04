@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:21:30 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/03 22:09:36 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/04 16:50:37 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ void	get_time(long long *val)
 	*val = (long long)(tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }
 
-void	time_travel(t_phil *philo, long long start, long long time)
+void	time_travel(long long start, long long time)
 {
 	long long	now;
 
-	(void)philo;
 	if (!start)
 		get_time(&start);
 	while (TRUE)

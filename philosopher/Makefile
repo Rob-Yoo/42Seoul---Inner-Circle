@@ -6,7 +6,7 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/23 14:31:23 by jinyoo            #+#    #+#              #
-#    Updated: 2022/03/30 16:21:50 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/04/04 17:05:35 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS =	src/main.c \
 		src/threading.c \
 		src/phils_state.c \
 		src/time.c \
-		src/error_handler.c \
+		src/exit_handler.c \
 		src/print_state.c \
 		utils/phil_utils.c
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 16:36:16 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/03 17:13:49 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/04 18:16:20 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print_state(t_phil *philo, int state)
 		if (state == FINISH)
 		{
 			ft_putendl("Finish!!!!");
-			philo->inform->isFin = FINISH;
+			philo->inform->fin = FINISH;
 		}
 		else
 		{
@@ -46,7 +46,7 @@ void	print_state(t_phil *philo, int state)
 			if (state == DEAD)
 			{
 				ft_putendl(" died");
-				philo->inform->isDie = DEAD;
+				philo->inform->die = DEAD;
 			}
 		}
 	}
