@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 20:37:16 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/01 20:46:59 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/04/04 21:23:40 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_putstr(char *s)
 		return ;
 	len = 0;
 	while (s[len])
-		len++; 
+		len++;
 	write(1, s, len);
 }
 
@@ -87,7 +87,7 @@ void	ft_putendl(char *s)
 		return ;
 	len = 0;
 	while (s[len])
-		len++; 
+		len++;
 	write(1, s, len);
 	write(1, "\n", 1);
 }
