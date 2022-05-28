@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:55:56 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/05/28 17:46:40 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/05/28 22:29:25 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,9 @@ private:
 	void	show_search_interface(void);
 	void	show_searched_contact(int idx);
 public:
-	PhoneBook(void) {
-		m_is_empty = true;
-		m_contact_idx = 0;
-		m_contact_num = 0;
-	};
+	PhoneBook(void);
 
-	int		get_m_contact_num(void) { return m_contact_num; };
+	int		get_m_contact_num(void);
 	
 	void	add_new_contact(void);
 	void	search_saved_contacts(void);

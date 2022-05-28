@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 21:52:34 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/05/28 17:28:00 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/05/28 22:29:06 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ private:
 	std::string	m_pnum;
 	std::string	m_dsecret;
 public:
-	Contact(void) {};
+	Contact(void);
 
-	std::string	getFname() { return m_fname; };
-	std::string	getLname() { return m_lname; };
-	std::string	getNickname() { return m_nickname; };
-	std::string	getPnum() { return m_pnum; };
-	std::string	getDsecret() { return m_dsecret; };
+	std::string	getFname(void);
+	std::string	getLname(void);
+	std::string	getNickname(void);
+	std::string	getPnum(void);
+	std::string	getDsecret(void);
 
-	void	setFname(std::string fname) { m_fname = fname; };
-	void	setLname(std::string lname) { m_lname = lname; };
-	void	setNickname(std::string nickname) { m_nickname = nickname; };
-	void	setPnum(std::string pnum) { m_pnum = pnum; };
-	void	setDsecret(std::string dsecret) { m_dsecret = dsecret; };
+	void	setFname(std::string fname);
+	void	setLname(std::string lname);
+	void	setNickname(std::string nickname);
+	void	setPnum(std::string pnum);
+	void	setDsecret(std::string dsecret);
 
 	bool	make_new_contact(void);
 };

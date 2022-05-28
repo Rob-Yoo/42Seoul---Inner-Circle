@@ -6,11 +6,20 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:07:40 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/05/28 17:52:27 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/05/28 22:30:46 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+int	PhoneBook::get_m_contact_num(void) { return (m_contact_num); }
+
+PhoneBook::PhoneBook(void)
+{
+	m_is_empty = true;
+	m_contact_idx = 0;
+	m_contact_num = 0;
+};
 
 static bool	check_validate_input(void)
 {

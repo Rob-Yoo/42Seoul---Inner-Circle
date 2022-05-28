@@ -6,11 +6,25 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:14:13 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/05/28 17:37:25 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/05/28 22:30:16 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact(void) {}
+
+std::string	Contact::getFname(void) { return m_fname; }
+std::string	Contact::getLname(void) { return m_lname; }
+std::string	Contact::getNickname(void) { return m_nickname; }
+std::string	Contact::getPnum(void) { return m_pnum; }
+std::string	Contact::getDsecret(void) { return m_dsecret; }
+
+void	Contact::setFname(std::string fname) { m_fname = fname; }
+void	Contact::setLname(std::string lname) { m_lname = lname; }
+void	Contact::setNickname(std::string nickname) { m_nickname = nickname; }
+void	Contact::setPnum(std::string pnum) { m_pnum = pnum; }
+void	Contact::setDsecret(std::string dsecret) { m_dsecret = dsecret; }
 
 static bool	fill_field(std::string field, std::string *info)
 {
