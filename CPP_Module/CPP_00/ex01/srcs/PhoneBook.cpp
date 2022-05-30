@@ -36,7 +36,7 @@ static bool	check_validate_input(void)
 
 static std::string truncate(std::string str)
 {
-	if (str.length() > 9)
+	if (str.length() > 10)
 		return str.substr(0, 9) + ".";
 	return str;
 }
