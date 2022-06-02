@@ -6,7 +6,7 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 17:27:45 by jinyoo            #+#    #+#              #
-#    Updated: 2022/06/02 21:23:04 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/06/02 21:24:29 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJS)
