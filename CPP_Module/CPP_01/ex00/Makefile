@@ -6,11 +6,11 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/29 14:56:08 by jinyoo            #+#    #+#              #
-#    Updated: 2022/05/29 16:08:30 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/06/02 21:24:38 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC= c++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./
 NAME = zombie
 SRCS =	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
@@ -21,10 +21,10 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJS)
