@@ -6,11 +6,11 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 16:57:08 by jinyoo            #+#    #+#              #
-#    Updated: 2022/05/26 21:43:17 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/06/02 21:22:58 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC= c++
+CXX= c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = megaphone
 

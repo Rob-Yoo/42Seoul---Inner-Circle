@@ -6,11 +6,11 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 17:27:45 by jinyoo            #+#    #+#              #
-#    Updated: 2022/05/27 17:55:26 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/06/02 21:23:04 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC= c++
+CXX= c++
 CXXFLAGS = -Wall -Wextra -Werror -Iinclude -std=c++98
 NAME = phone_book
 
