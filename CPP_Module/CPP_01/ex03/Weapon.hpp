@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 21:51:05 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/03 21:37:30 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/05 20:49:18 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 # define WEAPON_HPP
 
 # include <string>
+# include <iostream>
 
 class Weapon {
 private:
 	std::string type;
 public:
-	Weapon(void);
+	Weapon(std::string type);
+	~Weapon(void);
 
 	const std::string&	getType(void);
 	void	setType(std::string type);
