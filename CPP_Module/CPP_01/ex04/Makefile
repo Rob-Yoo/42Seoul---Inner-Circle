@@ -6,13 +6,13 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/05 21:32:37 by jinyoo            #+#    #+#              #
-#    Updated: 2022/06/05 21:33:20 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/06/06 20:19:57 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./
-NAME = losers
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = replace
 SRCS =	main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
