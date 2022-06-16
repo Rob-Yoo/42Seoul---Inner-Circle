@@ -33,12 +33,13 @@ Fixed& operator=(const Fixed& fixed);
 - 대입 생성자 내에서 동적 할당을 하거나 깊은 복사가 필요하면 직접 정의를 해야 한다.
 - 연산자 오버로딩 함수의 매개변수를 특정 객체로 선언했다면, = 연산자 오른쪽에 그 객체가 들어왔을 때만, 즉 올바른 인자를 대입했을 때 연산자가 오버로드 된다.
 
-
 고정 소수점, 부동 소수점
 
 - https://jiminish.tistory.com/81 => 두 개의 차이
 - https://gsmesie692.tistory.com/94 => 소수점을 이진수로 나타내는 법
 
+* 연산자 오버로딩
+https://modoocode.com/202
 
 2항 연산자(+, -, /.....) 오버로딩
 => 매개변수는 오른쪽 항, ex) a + b <- Example& operator+(const Example& b);
@@ -49,3 +50,9 @@ Fixed& operator=(const Fixed& fixed);
 	return out;
 }
 * 반환 값이 ostream&인 out인 이유는 [ out << c1 << c2 == (cout << c1) << c2 == cout << c2 ]과 레퍼런스를 반환함으로써 불필요한 복사를 막기위해 *
+
+static 멤버 변수, 함수
+https://m.blog.naver.com/tipsware/221676342281
+
+const 멤버 함수와 객체
+https://thinkpro.tistory.com/141

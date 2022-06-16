@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 15:00:11 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/14 12:38:19 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/15 16:10:13 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 class Fixed {
 public:
 	Fixed(void);
-	Fixed(const Fixed& inst);
+	Fixed(Fixed const &inst);
 	~Fixed(void);
-	Fixed&	operator=(const Fixed& src);
+	Fixed&	operator=(Fixed const &src);
 
 	int		getRawBits(void) const;
 	void	setRawBits(int const rawBits);

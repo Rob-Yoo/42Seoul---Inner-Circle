@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 22:02:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/14 22:14:02 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/15 16:12:35 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ public:
 	Fixed(void);
 	Fixed(int const value);
 	Fixed(float const value);
-	Fixed(const Fixed& inst);
+	Fixed(Fixed const &inst);
 	~Fixed(void);
-	Fixed&					operator=(const Fixed& src);
+	Fixed&					operator=(Fixed const &src);
 	bool					operator>(Fixed const &src) const;
 	bool					operator<(Fixed const &src) const;
 	bool					operator>=(Fixed const &src) const;
@@ -52,6 +52,6 @@ private:
 	int					_value;
 };
 
-std::ostream&	operator<<(std::ostream &s, const Fixed &fixed);
+std::ostream&	operator<<(std::ostream &s, Fixed const &fixed);
 
 #endif
