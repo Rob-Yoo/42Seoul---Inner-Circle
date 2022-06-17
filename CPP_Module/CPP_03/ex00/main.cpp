@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:07:02 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/17 14:16:53 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/17 14:19:13 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	main(void)
 {
-	ClapTrap	a("a");
-	ClapTrap	b("b");
-	ClapTrap	c("c");
+	ClapTrap	a("Warrior");
+	ClapTrap	b("Wizard");
+	ClapTrap	c("Archer");
 
 	std::cout << std::endl;
-	a.attack("b");
+	a.attack("Wizard");
 	b.takeDamage(a.getDamage());
 	std::cout << std::endl;
-	b.attack("a");
+	b.attack("Warrior");
 	a.takeDamage(b.getDamage());
 	std::cout << std::endl;
-	c.attack("b");
+	c.attack("Wizard");
 	b.takeDamage(c.getDamage());
 	std::cout << std::endl;
 	a.beRepaired(25);
@@ -38,7 +38,7 @@ int	main(void)
 	a.beRepaired(25);
 	a.beRepaired(25);
 	a.beRepaired(25);
-	a.attack("b");
+	a.attack("Wizard");
 	std::cout << std::endl;
 	return (0);
 }
