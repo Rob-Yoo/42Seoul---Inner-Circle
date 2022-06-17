@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:06:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/17 14:00:17 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/17 16:37:13 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,6 @@ public:
 	bool			check_dead(void);
 
 	unsigned int	getDamage(void) const;
-	unsigned int	getHP(void) const;
-	unsigned int	getEnergy(void) const;
-	std::string		getName(void) const;
-	void			setDamage(unsigned int damage);
-	void			setHP(unsigned int hit);
-	void			setEnergy(unsigned int energy);
-	void			setName(std::string name);
 private:
 	std::string		_name;
 	unsigned int	_hp;
