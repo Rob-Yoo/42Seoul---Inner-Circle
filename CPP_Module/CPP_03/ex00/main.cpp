@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:07:02 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/16 22:08:31 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/17 14:16:53 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ int	main(void)
 	b.takeDamage(c.getDamage());
 	std::cout << std::endl;
 	a.beRepaired(25);
+	a.beRepaired(25);
+	a.beRepaired(25);
+	a.beRepaired(25);
+	a.beRepaired(25);
+	a.beRepaired(25);
+	a.beRepaired(25);
+	a.beRepaired(25);
+	a.beRepaired(25);
+	a.beRepaired(25);
+	a.attack("b");
 	std::cout << std::endl;
 	return (0);
 }

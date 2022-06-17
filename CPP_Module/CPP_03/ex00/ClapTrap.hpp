@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:06:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/16 21:59:17 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/17 14:00:17 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,19 @@ public:
 	void			attack(std::string const &target);
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
+	bool			check_dead(void);
 
 	unsigned int	getDamage(void) const;
-	unsigned int	getHit(void) const;
+	unsigned int	getHP(void) const;
 	unsigned int	getEnergy(void) const;
 	std::string		getName(void) const;
 	void			setDamage(unsigned int damage);
-	void			setHit(unsigned int hit);
+	void			setHP(unsigned int hit);
 	void			setEnergy(unsigned int energy);
 	void			setName(std::string name);
 private:
 	std::string		_name;
-	unsigned int	_hit;
+	unsigned int	_hp;
 	unsigned int	_energy;
 	unsigned int	_damage;
 };
