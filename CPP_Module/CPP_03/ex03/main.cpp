@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:56:30 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/20 21:50:32 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/20 22:24:39 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@ int	main(void)
 		DiamondTrap b("B");
 		DiamondTrap c("C");
 
-
 		std::cout << std::endl;
 		
 		b.whoAmI();
-		c.whoAmI();		
+		c.whoAmI();
 		c.highFivesGuys();
 		
 		std::cout << std::endl;
@@ -40,6 +39,7 @@ int	main(void)
 		
 		b.attack("C");
 		c.takeDamage(b.getDamage());
+		c.beRepaired(10);
 		
 		std::cout << std::endl;
 		

@@ -6,27 +6,27 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:07:05 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/20 15:49:19 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/20 22:26:56 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void): _name("default"), _hp(10), _energy(10), _damage(0) {
-	std::cout << "Default Constructor called" << std::endl;
+	std::cout << "ClapTrap Default Constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) {
-	std::cout << this->_name << ": Destructor called" << std::endl;
+	std::cout << this->_name << ": ClapTrap Destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src) {
 	*this = src;
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _energy(10), _damage(0) {
-	std::cout << this->_name << ": Constructor called" << std::endl;
+	std::cout << this->_name << ": ClapTrap Constructor called" << std::endl;
 }
 
 ClapTrap&	ClapTrap::operator=(ClapTrap const &src) {
@@ -76,8 +76,8 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 void	ClapTrap::beRepaired(unsigned int amount) {
 	if (check_dead())
 		return ;
-	if (this->_hp + amount > 10)
-		this->_hp = 10;
+	if (this->_hp + amount > 100)
+		this->_hp = 100;
 	else
 		this->_hp += amount;
 	std::cout << "ClapTrap " << this->_name << " has been repaired, and current HP is " << this->_hp << std::endl;
