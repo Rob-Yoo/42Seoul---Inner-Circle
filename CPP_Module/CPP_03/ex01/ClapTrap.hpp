@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:06:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/17 16:37:13 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/20 15:23:10 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,13 @@ public:
 	void			beRepaired(unsigned int amount);
 	bool			check_dead(void);
 
+	std::string		getName(void) const;
+	unsigned int	getEnergy(void) const;
+	unsigned int	getHP(void) const;
 	unsigned int	getDamage(void) const;
+	void			setHP(unsigned int n);
+	void			setEnergy(unsigned int n);
+	void			setDamage(unsigned int n);
 private:
 	std::string		_name;
 	unsigned int	_hp;

@@ -6,14 +6,14 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:07:05 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/17 16:39:50 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/20 15:51:24 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void): _name("default"), _hp(10), _energy(10), _damage(0) {
-	std::cout << this->_name << ": Default Constructor called" << std::endl;
+	std::cout << "Default Constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) {
@@ -21,8 +21,8 @@ ClapTrap::~ClapTrap(void) {
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src) {
+	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
-	std::cout << this->_name << ": Copy constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _energy(10), _damage(0) {
@@ -84,6 +84,30 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	this->_energy--;
 }
 
+std::string	ClapTrap::getName(void) const {
+	return this->_name;
+}
+
+unsigned int	ClapTrap::getEnergy(void) const {
+	return this->_energy;
+}
+
+unsigned int	ClapTrap::getHP(void) const {
+	return this->_hp;
+}
+
 unsigned int	ClapTrap::getDamage(void) const {
 	return this->_damage;
+}
+
+void	ClapTrap::setHP(unsigned int hp) {
+	this->_hp = hp;
+}
+
+void	ClapTrap::setEnergy(unsigned int energy) {
+	this->_energy = energy;
+}
+
+void	ClapTrap::setDamage(unsigned int damage) {
+	this->_damage = damage;
 }
