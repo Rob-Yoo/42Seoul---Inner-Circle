@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:07:05 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/20 15:51:12 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/20 22:46:03 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ClapTrap&	ClapTrap::operator=(ClapTrap const &src) {
 		this->_name = src._name;
 		this->_damage = src._damage;
 		this->_energy = src._energy;
-		this->_hp = src._energy;
+		this->_hp = src._hp;
 	}
 	return *this;
 }
