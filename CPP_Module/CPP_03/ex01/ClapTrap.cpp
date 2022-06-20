@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:07:05 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/20 15:51:24 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/20 22:27:23 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 void	ClapTrap::beRepaired(unsigned int amount) {
 	if (check_dead())
 		return ;
-	if (this->_hp + amount > 10)
-		this->_hp = 10;
+	if (this->_hp + amount > 100)
+		this->_hp = 100;
 	else
 		this->_hp += amount;
 	std::cout << "ClapTrap " << this->_name << " has been repaired, and current HP is " << this->_hp << std::endl;
