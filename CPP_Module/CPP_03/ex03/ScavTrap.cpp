@@ -6,12 +6,11 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 16:51:04 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/20 22:28:51 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/21 15:55:58 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
 
 ScavTrap::ScavTrap(void): ClapTrap() {
 	setHP(100);

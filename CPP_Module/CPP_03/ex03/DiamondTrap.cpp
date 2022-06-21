@@ -6,14 +6,11 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 19:34:07 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/20 22:46:43 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/21 15:55:49 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
 
 DiamondTrap::DiamondTrap(void): ClapTrap(), FragTrap(), ScavTrap(), _name(ClapTrap::getName()) {
 	std::cout << "DiamondTrap Default Constructor called" << std::endl;
