@@ -6,14 +6,12 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 16:31:37 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/22 17:49:24 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/22 21:57:00 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include <ostream>
 
 int main(void)
 {
