@@ -6,14 +6,15 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:09:34 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/22 14:40:10 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/22 16:55:42 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-#include "Animal.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog: public Animal {
 public:
@@ -23,6 +24,10 @@ public:
 
 	Dog&	operator=(Dog const &src);
 	void	makeSound(void) const;
+
+	Brain*	getBrain(void);
+private:
+	Brain*	brain;
 };
 
 #endif
