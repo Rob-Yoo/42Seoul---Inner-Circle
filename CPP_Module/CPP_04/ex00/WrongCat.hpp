@@ -6,14 +6,14 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:09:28 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/22 14:45:34 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/22 15:40:38 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONG_CAT_HPP
 # define WRONG_CAT_HPP
 
-#include "WrongAnimal.hpp"
+# include "WrongAnimal.hpp"
 
 class WrongCat: public WrongAnimal {
 public:

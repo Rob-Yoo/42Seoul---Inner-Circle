@@ -6,14 +6,14 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:09:34 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/22 14:40:10 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/22 15:40:31 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-#include "Animal.hpp"
+# include "Animal.hpp"
 
 class Dog: public Animal {
 public:

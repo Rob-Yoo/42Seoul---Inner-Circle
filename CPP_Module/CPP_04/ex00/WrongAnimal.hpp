@@ -6,15 +6,15 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:43:22 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/22 14:44:45 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/22 15:40:36 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONG_ANIMAL_HPP
 # define WRONG_ANIMAL_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 
 class WrongAnimal {
 public:
