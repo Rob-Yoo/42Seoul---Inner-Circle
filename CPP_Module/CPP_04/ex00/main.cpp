@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:07:29 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/22 15:04:34 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/23 19:40:56 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 	const Animal		*j = new Dog();
 	const Animal		*i = new Cat();
 	const WrongAnimal	*w = new WrongCat();
-	
+
 	std::cout << std::endl;
 
 	std::cout << j->getType() << " " << std::endl;
@@ -28,7 +28,7 @@ int main()
 	std::cout << w->getType() << " " << std::endl;
 
 	std::cout << std::endl;
-	
+
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
