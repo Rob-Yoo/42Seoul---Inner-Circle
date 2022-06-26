@@ -6,13 +6,12 @@
 /*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 15:06:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/26 20:20:12 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/26 20:59:44 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-#include <exception>
 
 Bureaucrat::Bureaucrat(void) {}
 

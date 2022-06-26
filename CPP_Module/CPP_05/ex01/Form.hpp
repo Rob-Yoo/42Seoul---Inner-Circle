@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 19:20:59 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/26 20:24:14 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/27 01:31:41 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	};
 
 	Form(std::string name, int sign_grade, int exec_grade) throw(GradeTooHighException, GradeTooLowException);
-	~Form(void);
+	virtual ~Form(void);
 	Form(Form const &src) throw(GradeTooHighException, GradeTooLowException);
 
 	Form& operator=(Form const &src);
