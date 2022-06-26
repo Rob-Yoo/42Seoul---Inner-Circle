@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 20:50:16 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/25 21:04:33 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/26 20:52:51 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ int main(void)
 		std::cout << C << std::endl;
 		std::cout << std::endl;
 
-		C = A;
-
-		std::cout << C << std::endl;
-		std::cout << std::endl;
-
 		// A.incre_grade(11);
 		// A.incre_grade(10);
 		// A.decre_grade(141);
@@ -52,7 +47,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exception : " << e.what() << '\n';
+		std::cerr << "Exception : " << e.what() << std::endl;
 	}
 	return 0;
 }
