@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 21:00:33 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/26 21:00:34 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/27 16:23:16 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ const char* Form::GradeTooHighException::what(void) const throw() {
 
 const char* Form::GradeTooLowException::what(void) const throw() {
 	return "Form Grade Too Low";
+}
+
+const char* Form::DoesNotSignedException::what(void) const throw() {
+	return "Form Does Not Signed Yet";
+}
+
+const char* Form::CanNotCreateFileException::what(void) const throw() {
+	return "Form Cannot Create File";
 }
 
 Form::Form(void): _sign_grade(0), _exec_grade(0) {}
@@ -34,7 +42,6 @@ Form::Form(std::string name, int sign_grade, int exec_grade)
 	if (_sign_grade > 150 || _exec_grade > 150)
 		throw GradeTooLowException();
 }
-
 
 Form::Form(Form const &src)
 	throw(GradeTooHighException, GradeTooLowException)
@@ -73,6 +80,15 @@ void Form::beSigned(Bureaucrat const &bur) throw(GradeTooLowException) {
 	if (bur.getGrade() <= this->_sign_grade)
 		this->_is_signed = true;
 	else
+		throw GradeTooLowException();
+}
+
+void Form::executable(const Bureaucrat& bur) const
+	throw(DoesNotSignedException, GradeTooLowException)
+{
+	if (!getSigned())
+		throw DoesNotSignedException();
+	if (bur.getGrade() > this->_exec_grade)
 		throw GradeTooLowException();
 }
 
