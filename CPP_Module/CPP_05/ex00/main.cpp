@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 20:50:16 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/26 20:52:51 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/27 17:31:41 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int main(void)
+int	main(void)
 {
 	try
 	{
