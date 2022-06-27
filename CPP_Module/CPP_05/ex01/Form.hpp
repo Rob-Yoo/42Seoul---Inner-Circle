@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 19:20:59 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/27 01:31:41 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/27 19:43:59 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# include <iostream>
-# include <string>
-# include <exception>
 # include "Bureaucrat.hpp"
 
 class Form {
