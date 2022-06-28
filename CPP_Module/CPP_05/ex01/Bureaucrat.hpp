@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 15:05:15 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/26 20:10:27 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/28 14:44:34 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ public:
 
 	std::string	getName(void) const;
 	int			getGrade(void) const;
-	void		incre_grade(int grade) throw(GradeTooHighException, GradeTooLowException);
-	void		decre_grade(int grade) throw(GradeTooHighException, GradeTooLowException);
+	void		incre_grade(int grade) throw(GradeTooHighException);
+	void		decre_grade(int grade) throw(GradeTooLowException);
 private:
 	const std::string	_name;
 	int					_grade;
