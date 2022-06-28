@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 15:06:31 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/25 21:06:51 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/28 14:44:13 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	Bureaucrat::getGrade(void) const {
 }
 
 void	Bureaucrat::incre_grade(int grade)
-	throw (GradeTooHighException, GradeTooLowException)
+	throw (GradeTooHighException)
 {
 	if (this->_grade - grade < 1)
 		throw GradeTooHighException();
@@ -78,7 +78,7 @@ void	Bureaucrat::incre_grade(int grade)
 }
 
 void	Bureaucrat::decre_grade(int grade)
-	throw (GradeTooHighException, GradeTooLowException)
+	throw (GradeTooLowException)
 {
 	if (this->_grade + grade > 150)
 		throw GradeTooLowException();
