@@ -6,14 +6,14 @@
 #    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/21 15:59:24 by jinyoo            #+#    #+#              #
-#    Updated: 2022/06/22 14:47:57 by jinyoo           ###   ########.fr        #
+#    Updated: 2022/06/28 16:12:47 by jinyoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./
-NAME = polymorphism
-SRCS =	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+NAME = intern
+SRCS =	main.cpp Intern.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Bureaucrat.cpp Form.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 .PHONY: all clean fclean re
