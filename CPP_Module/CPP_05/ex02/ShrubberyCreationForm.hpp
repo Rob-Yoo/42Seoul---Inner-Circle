@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 21:01:29 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/27 19:48:22 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/28 14:28:45 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 
 	ShrubberyCreationForm&	operator=(ShrubberyCreationForm const &src);
 
-	void	execute(Bureaucrat const &executor) const throw(CanNotCreateFileException);
+	void	execute(Bureaucrat const &executor) const throw(CanNotCreateFileException, GradeTooLowException, DoesNotSignedException);
 private:
 	ShrubberyCreationForm(void);
 };

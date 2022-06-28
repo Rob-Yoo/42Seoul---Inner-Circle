@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 21:01:26 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/27 19:42:57 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/28 14:28:41 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src): 
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
-	throw(CanNotCreateFileException)
+	throw(CanNotCreateFileException, GradeTooLowException, DoesNotSignedException)
 {
 	executable(executor);
 	std::ofstream	out(getName() + "_shrubbery");

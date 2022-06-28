@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 21:00:24 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/27 17:25:40 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/28 14:44:44 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ public:
 	void	executeForm(Form const &form) const;
 	std::string	getName(void) const;
 	int			getGrade(void) const;
-	void		incre_grade(int grade) throw(GradeTooHighException, GradeTooLowException);
-	void		decre_grade(int grade) throw(GradeTooHighException, GradeTooLowException);
+	void		incre_grade(int grade) throw(GradeTooHighException);
+	void		decre_grade(int grade) throw(GradeTooLowException);
 private:
 	const std::string	_name;
 	int					_grade;
