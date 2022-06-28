@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 20:21:26 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/27 17:31:36 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/28 16:21:30 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(void)
 
 		std::cout << std::endl;
 
-		//표준출력
 		std::cout << a << std::endl;
 		std::cout << f1 << std::endl;
 
@@ -33,7 +32,6 @@ int	main(void)
 		a.signForm(f1);
 		std::cout << std::endl;
 
-		//표준출력
 		std::cout << a << std::endl;
 		std::cout << f1 << std::endl;
 		std::cout << std::endl;
