@@ -3,26 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 20:25:59 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/30 21:46:33 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/07/01 02:46:27 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Data.hpp"
 
-int main()
+int main(void)
 {
-	Data *original = new Data("jinyoo", 185.1, 72.6, 25);
-	std::cout << *original << std::endl;
+	Data *data = new Data("jinyoo", 185.1, 72.6, 25);
+	std::cout << *data << std::endl;
 
-	// Data* => uintptr_t
-	uintptr_t broker = serialize(original);
+	uintptr_t sr_data = serialize(data);
 
-	// uintptr_t => Data*
-	Data *clone = deserialize(broker);
-	std::cout << *clone << std::endl;
-	delete original;
+	Data *dsr_data = deserialize(sr_data);
+	std::cout << *dsr_data << std::endl;
+	delete data;
 	return 0;
 }
