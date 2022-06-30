@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Convert.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 01:08:17 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/30 02:21:06 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/06/30 20:21:37 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 
 # include <iostream>
 # include <string>
-# include <sstream>
+# include <exception>
+# include <cstdlib>
+# include <cmath>
+# include <cctype>
 
 class Convert {
 public:
-	Convert(std::string input);
+
+	class BadArgumentException: public std::exception {
+	public:
+		const char* what(void) const throw();
+	};
+	Convert(std::string input) throw(BadArgumentException);
 	~Convert(void);
 	Convert(Convert const &src);
 
@@ -28,11 +36,20 @@ public:
 	char	toChar(void) const;
 	int		toInt(void) const;
 	float	toFloat(void) const;
-	double	toDouble(void) const;
+
+	void	printAll(void) const;
+
+	std::string	getInput(void) const;
+	double		getValue(void) const;
 private:
 	std::string _input;
+	double		_value;
 	Convert(void);
+
+	void	printChar(void) const;
+	void	printInt(void) const;
+	void	printFloat(void) const;
+	void	printDouble(void) const;
 };
 
 #endif
-
