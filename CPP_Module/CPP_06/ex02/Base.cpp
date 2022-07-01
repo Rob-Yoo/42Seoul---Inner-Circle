@@ -6,12 +6,11 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 01:10:34 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/07/01 16:33:17 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/07/01 16:34:40 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
-#include <exception>
 
 Base::~Base(void) {}
 
@@ -56,4 +55,3 @@ void	identify(Base& p) {
 	try_down_cast(p, "B");
 	try_down_cast(p, "C");
 }
-
