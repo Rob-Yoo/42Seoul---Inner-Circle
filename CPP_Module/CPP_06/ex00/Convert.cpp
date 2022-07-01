@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 01:08:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/30 19:51:27 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/07/01 16:36:47 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	Convert::printDouble(void) const {
 	std::cout.unsetf(std::ios::fixed);
 }
 
-void	Convert::printAll(void) const {
+void	Convert::printConvert(void) const {
 	printChar();
 	std::cout << std::endl;
 	printInt();

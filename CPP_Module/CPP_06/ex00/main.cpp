@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:11:17 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/30 19:54:03 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/07/01 16:36:47 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 			Convert A(argv[1]);
 			Convert B(A);
 
-			A.printAll();
+			A.printConvert();
 		} catch (std::exception &e) {
 			std::cerr << "Exception : " << e.what() << std::endl;
 		}

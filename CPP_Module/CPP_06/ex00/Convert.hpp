@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 01:08:17 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/06/30 20:21:37 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/07/01 16:38:12 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,7 @@ public:
 
 	Convert&	operator=(Convert const &src);
 
-	char	toChar(void) const;
-	int		toInt(void) const;
-	float	toFloat(void) const;
-
-	void	printAll(void) const;
+	void	printConvert(void) const;
 
 	std::string	getInput(void) const;
 	double		getValue(void) const;
@@ -45,6 +41,10 @@ private:
 	std::string _input;
 	double		_value;
 	Convert(void);
+
+	char	toChar(void) const;
+	int		toInt(void) const;
+	float	toFloat(void) const;
 
 	void	printChar(void) const;
 	void	printInt(void) const;
