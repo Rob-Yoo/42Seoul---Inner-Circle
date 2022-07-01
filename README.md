@@ -17,4 +17,5 @@
 |   | [CPP_04](https://github.com/Rob-Yoo/42Seoul---Inner-Circle/tree/master/CPP_Module/CPP_04) | Subtype polymorphism, abstract classes and interfaces in CPP | [![jinyoo's 42 CPP Module 04 Score](https://badge42.vercel.app/api/v2/cl1qex5u8004509mthnwqlmwp/project/2629424)](https://github.com/JaeSeoKim/badge42) |
 |   | [CPP_05](https://github.com/Rob-Yoo/42Seoul---Inner-Circle/tree/master/CPP_Module/CPP_05) | Try/Catch and Exceptions in CPP | [![jinyoo's 42 CPP Module 05 Score](https://badge42.vercel.app/api/v2/cl1qex5u8004509mthnwqlmwp/project/2635886)](https://github.com/JaeSeoKim/badge42) |
 |   | [CPP_06](https://github.com/Rob-Yoo/42Seoul---Inner-Circle/tree/master/CPP_Module/CPP_06) | Different type casts in CPP | [![jinyoo's 42 CPP Module 06 Score](https://badge42.vercel.app/api/v2/cl1qex5u8004509mthnwqlmwp/project/2640072)](https://github.com/JaeSeoKim/badge42) |
+|   | [CPP_07](https://github.com/Rob-Yoo/42Seoul---Inner-Circle/tree/master/CPP_Module/CPP_07) | Templates in CPP | [![jinyoo's 42 CPP Module 07 Score](https://badge42.vercel.app/api/v2/cl1qex5u8004509mthnwqlmwp/project/2643784)](https://github.com/JaeSeoKim/badge42) |
 
