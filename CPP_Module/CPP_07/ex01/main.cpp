@@ -6,11 +6,12 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 19:19:46 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/07/02 19:46:48 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/07/03 14:06:14 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
+
 int main(void) {
 	std::string s[4] = { "jinyoo", "soo", "gshim", "jinkim2" };
 	int i[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
