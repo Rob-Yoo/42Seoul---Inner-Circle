@@ -6,15 +6,28 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 15:33:53 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/07/04 15:34:52 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/07/06 16:54:40 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASY_FIND_HPP
 # define EASY_FIND_HPP
 
+# include <exception>
 # include <iostream>
 # include <algorithm>
+
+template<typename T>
+typename T::iterator easyfind(T& container, int data) {
+	typename T::iterator	iter;
+
+	// for (iter = container.begin();iter != container.end();iter++) {
+	// 	if (*iter == data)
+	// 		return iter;
+	// }
+	iter = std::find(container.begin(), container.end(), data);
+	return iter;
+}
 
 
 #endif
