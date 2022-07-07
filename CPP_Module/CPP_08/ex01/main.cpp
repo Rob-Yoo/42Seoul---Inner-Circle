@@ -6,11 +6,13 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:05:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/07/06 21:33:28 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/07/07 17:44:40 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <iostream>
+#include <ostream>
 
 int main()
 {
@@ -23,8 +25,17 @@ int main()
 	Span ps(7);
 
 	ps = sp;
-	// std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
-	std::cout << sp.shortestSpan() << std::endl;
+	try {
+		std::cout << "[sp]\n";
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+
+		std::cout << "\n[ps]\n";
+		std::cout << ps.shortestSpan() << std::endl;
+		std::cout << ps.longestSpan() << std::endl;
+	} catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	return 0;
 }

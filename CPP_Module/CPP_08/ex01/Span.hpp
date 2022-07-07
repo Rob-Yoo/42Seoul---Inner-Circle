@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:04:45 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/07/06 22:19:29 by jinyoo           ###   ########.fr       */
+/*   Updated: 2022/07/07 16:55:00 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define SPAN_HPP
 
 # include <cstddef>
+# include <cstdlib>
 # include <iostream>
+# include <exception>
 # include <algorithm>
 # include <vector>
 # include <numeric>
