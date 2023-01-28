@@ -20,6 +20,7 @@
 # include <limits>
 
 # include "iterator.hpp"
+# include "utils.hpp"
 # include "enable_if.hpp"
 # include "is_integral.hpp"
 # include "lexicographical_compare.hpp"

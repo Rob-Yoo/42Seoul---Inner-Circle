@@ -13,7 +13,7 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp
-NEWSRCS = new_main.cpp
+NEWSRCS = test.cpp
 HEADER = ./
 NAME = a.out
 OBJECTS = $(SRCS:.cpp=.o)

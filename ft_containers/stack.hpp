@@ -53,11 +53,11 @@ public:
 		c.pop_back();
 	}
 
-// protected:
-// 	template<typename C, typename U>
-// 	friend bool operator==(const stack<C,U>& lhs, const stack<C,U>& rhs);
-// 	template<typename C, typename U>
-// 	friend bool operator<(const stack<C,U>& lhs, const stack<C,U>& rhs);
+protected:
+	template<typename C, typename U>
+	friend bool operator==(const stack<C,U>& lhs, const stack<C,U>& rhs);
+	template<typename C, typename U>
+	friend bool operator<(const stack<C,U>& lhs, const stack<C,U>& rhs);
 };
 
 template <class T, class Container>
