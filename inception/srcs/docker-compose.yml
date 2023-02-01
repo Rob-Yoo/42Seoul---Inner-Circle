@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+    mariadb:
+        container_name: mariadb
+        restart: always
+        build: ./requirements/mariadb
+        expose: # 내부 연결
+            - '3306'
+        environment:
+          - DB_ROOT_PW=${DB_ROOT_PW}
+          - DB_NAME=${DB_NAME}
+          - DB_USER=${DB_USER}
+          - DB_USER_PW=${DB_USER_PW}
+        volumes:
+            - /home/jinyoo/data/db:/var/lib/mysql
+        networks:
+            - inception
+    wordpress:
+        container_name: wordpress
+        restart: always
+        build: ./requirements/wordpress
+        expose: # 내부 연결
+            - '9000'
+        depends_on:
+            - mariadb
+        environment:
+          - WP_USER1=${WP_USER1}
+          - WP_USER1_PW=${WP_USER1_PW}
+          - WP_USER2=${WP_USER2}
+          - WP_USER2_PW=${WP_USER2_PW}
+        env_file:
+            - .env
+        volumes:
+            - /home/jinyoo/data/wp:/var/www/html
+        networks:
+            - inception
+    nginx:
+        container_name: nginx
+        restart: always
+        build: ./requirements/nginx
+        ports: # 외부 연결
+            - '443:443'
+        depends_on:
+            - wordpress
+        networks:
+            - inception
+        volumes:
+            - /home/jinyoo/data/wp:/var/www/html/
+
+networks:
+    inception:
+        driver: bridge
+        name: inception
