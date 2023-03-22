@@ -1,0 +1,56 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+    networks:
+      - ftscen
+    tty: true
+
+  nestjs:
+    image: nestjs
+    build: ./backend
+    container_name: nestjs
+    depends_on:
+      - postgres
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${NESTJS_PORT}:${NESTJS_PORT}"
+    volumes:
+      - ./backend:/backend
+    networks:
+      - ftscen
+    tty: true
+    command: bash -c "npm install && npm run start:dev"
+
+  react:
+    image: react
+    build: ./frontend
+    container_name: react
+    depends_on:
+      - nestjs
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${REACT_APP_PORT}:${REACT_APP_PORT}"
+    volumes:
+      - ./frontend:/frontend
+    networks:
+      - ftscen
+    tty: true
+    command: bash -c "npm i && npm run start:dev"
+
+networks:
+  ftscen:
+    driver: bridge

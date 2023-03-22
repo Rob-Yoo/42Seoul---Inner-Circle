@@ -1,0 +1,18 @@
+.Scrollable {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+}
+.Scrollable::-webkit-scrollbar {
+    display: none;
+}
+
+.Dragunable {
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+
+.CursorPointer {
+    cursor: pointer;
+}
