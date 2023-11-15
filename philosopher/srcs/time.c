@@ -3,34 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 16:21:30 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/04 20:41:49 by jinyoo           ###   ########.fr       */
+/*   Created: 2022/03/29 20:34:02 by jinyoo            #+#    #+#             */
+/*   Updated: 2023/11/15 13:21:04 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	get_time(long long *val)
+long long	get_now(void)
 {
-	struct timeval	tv;
+	struct timeval	now;
 
-	gettimeofday(&tv, NULL);
-	*val = (long long)(tv.tv_sec * 1000 + tv.tv_usec / 1000);
+	gettimeofday(&now, NULL);
+	return ((now.tv_sec * 1000) + (now.tv_usec / 1000));
 }
 
-void	time_travel(long long start, long long time)
+int	time_watch(long long start)
 {
 	long long	now;
 
-	if (!start)
-		get_time(&start);
-	while (TRUE)
-	{
-		get_time(&now);
-		if (now - start >= time)
-			break ;
-		usleep(500);
-	}
+	now = get_now();
+	return ((int)(now - start));
+}
+
+void	throw_time(t_philo *philo, long long start, int end)
+{
+	t_param		*param;
+
+	param = philo->param;
+	while (time_watch(start) < end)
+		usleep(200);
 }

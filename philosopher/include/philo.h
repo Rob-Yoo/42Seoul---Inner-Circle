@@ -3,79 +3,87 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jinyoo <jinyoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 17:14:21 by jinyoo            #+#    #+#             */
-/*   Updated: 2022/04/04 21:42:12 by jinyoo           ###   ########.fr       */
+/*   Created: 2022/03/28 17:26:00 by jinyoo            #+#    #+#             */
+/*   Updated: 2023/11/15 13:19:00 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #ifndef PHILO_H
 # define PHILO_H
-# include <unistd.h>
-# include <stdlib.h>
+
+# define TAKE "has taken a fork"
+# define EATING "is eating"˙
+# define SLEEPING "is sleeping"
+# define THINKING "is thinking"
+# define DIED "died"
+# define FINISH "finish"
+
+# define EAT 1
+# define FORK 2
+
+# define HUNGRY 0
+# define FULL 1
+# define DIE 2
+
 # include <stdio.h>
-# include <pthread.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <string.h>
 # include <sys/time.h>
+# include <pthread.h>
 
-# define PICKUP 1
-# define SLEEPING 2
-# define THINKING 3
-# define EATING 4
-# define FINISH 5
-# define DEAD 6
-
-# define TRUE 1
-
-typedef pthread_mutex_t	t_mutex;
-
-typedef struct s_inform
+typedef struct s_param
 {
-	int				num_phils;
-	int				tim_die;
-	int				tim_eat;
-	int				time_sleep;
-	int				num_must_eat;
-	int				num_fin_eat;
-	int				*state;
-	t_mutex			*fork_mutex;
-	t_mutex			print_lock;
-	t_mutex			fin_lock;
-	long long		*time;
+	int				philos;
+	int				life_time;
+	int				eat_time;
+	int				sleep_time;
+	int				must_eat;
+	int				die_state;
 	long long		start;
-	int				die;
-	int				fin;
-	pthread_t		monitoring_tid;
-}	t_inform;
+	pthread_mutex_t	*check;
+	pthread_mutex_t	*print;
+	pthread_mutex_t	*fork;
+}	t_param;
 
-typedef struct s_phil
+typedef struct s_philo
 {
-	t_inform	*inform;
-	pthread_t	dining_tid;
-	int			me;
-	int			left_fork;
-	int			right_fork;
-	int			num_eat;
-}	t_phil;
+	int			num;
+	int			l_fork;
+	int			r_fork;
+	int			eat_cnt;
+	long long	last_eat_time;
+	pthread_t	tid;
+	t_param		*param;
+}	t_philo;
 
-int		ft_atoi(const char *str);
-void	ft_putnbr(int n);
-void	ft_putstr(char *s);
-void	ft_putendl(char *s);
+//init
+t_param		*args_parse(t_param *param, char **argv, int argc);
+t_param		*init_param(t_param *param);
+t_philo		*init_philo(t_philo *philo, t_param *param);
+int			make_mutex(t_param *param);
+int			ft_atoi(const char *str);
 
-void	*dining_phils(void *inform);
-void	*monitoring(void *phil);
-void	print_state(t_phil *philo, int state);
+//action
+int			thinking(t_philo *philo);
+int			sleeping(t_philo *philo);
+int			eating(t_philo *philo);
+void		*threading(void *p_philo);
 
-int		phils_guide(t_phil *philo);
-void	p_eat(t_phil *philo);
-void	p_sleep(t_phil *philo);
-void	p_think(t_phil *philo);
+//print
+void		ft_putendl(char *s);
+void		ft_putnbr(long long nb);
+int			print_state(t_philo *philo, t_param *param, char *state, int flag);
 
-void	get_time(long long *val);
-void	time_travel(long long start, long long time);
+//time
+long long	get_now(void);
+int			time_watch(long long start);
+void		throw_time(t_philo *philo, long long start, int end);
 
-int		throw_error(t_phil *phils);
-int		ft_exit(t_phil *phils);
+//handle
+int			check_die_mutex(t_param *param);
 
 #endif

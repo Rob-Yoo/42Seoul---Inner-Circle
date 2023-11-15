@@ -1,42 +1,31 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/23 14:31:23 by jinyoo            #+#    #+#              #
-#    Updated: 2022/04/04 17:05:35 by jinyoo           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-CC= cc
-CFLAGS = -Wall -Wextra -Werror -Iinclude
 NAME = philo
 
-SRCS =	src/main.c \
-		src/threading.c \
-		src/phils_state.c \
-		src/time.c \
-		src/exit_handler.c \
-		src/print_state.c \
-		utils/phil_utils.c
-OBJS = $(SRCS:.c=.o)
+SRCS =	srcs/main.c \
+		srcs/init.c \
+		srcs/action.c \
+		srcs/print.c \
+		srcs/time.c \
+		srcs/check.c
 
-.PHONY: all clean fclean re
+OBJS = ${SRCS:.c=.o}
 
-all: $(NAME)
+all : $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(NAME) : $(OBJS) 
+	$(CC) $(CFLAGS) -o $@ $^
 
-.o: .c
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o : %.c
+	$(CC) $(CFLAGS) -o $@ -c $^ -Iinclude
+	
+clean :
+	rm -f $(OBJS)
 
-clean:
-	@rm -rf $(OBJS)
+fclean : clean
+	rm -f $(NAME)
 
-fclean: clean
-	@rm -rf $(NAME)
+re : fclean all
 
-re: fclean all
+.PHONY : all clean fclean re 
